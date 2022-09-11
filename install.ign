@@ -1,0 +1,16 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/coreos/installer.d/custom.yaml",
+        "contents": {
+          "compression": "",
+          "source": "data:,ignition-url%3A%20https%3A%2F%2Fraw.githubusercontent.com%2FUnconventionalMindset%2Fcoreos-setup%2Fmain%2Fcoreos.ign"
+        }
+      }
+    ]
+  }
+}
