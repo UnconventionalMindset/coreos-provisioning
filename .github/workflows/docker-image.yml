@@ -17,7 +17,9 @@ jobs:
     - name: Build the Docker image
       run: |
         rm -f coreos.ign
+        rm -f install.ign
         docker run -i --rm quay.io/coreos/butane:release --pretty --strict < coreos.bu > coreos.ign
+        docker run -i --rm quay.io/coreos/butane:release --pretty --strict < install.bu > install.ign
         git config --global user.name 'UnconventionalMindset'
         git config --global user.email '11658632+UnconventionalMindset@users.noreply.github.com'
         git commit -am "Automate ignition file generation from butane"
