@@ -6,4 +6,4 @@ storage:
       contents:
         inline: |
           ignition-url: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/main/coreos.ign
-          dest-device: /dev/zda
+          dest-device: /dev/sda
