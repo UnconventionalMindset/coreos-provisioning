@@ -1,0 +1,8 @@
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    - path: /etc/coreos/installer.d/custom.yaml
+      contents:
+        inline: |
+          ignition-url: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/main/coreos.ign
