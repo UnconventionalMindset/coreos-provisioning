@@ -55,7 +55,7 @@ storage:
 systemd:
   units:
     - name: var-mnt-shared.mount
-      enable: true
+      enabled: true
       contents: |
         [Unit]
         Before=local-fs.target docker.portainer.service
