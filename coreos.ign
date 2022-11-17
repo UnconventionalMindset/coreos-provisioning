@@ -55,7 +55,7 @@
   "systemd": {
     "units": [
       {
-        "contents": "[Unit]\nAfter=NetworkManager-wait-online.service\n[Mount]\nWhat=192.168.31.109:/mnt/hdd1tb/shared\nWhere=/var/mnt/shared\nType=nfs\n[Install]\nWantedBy=local-fs.target\n",
+        "contents": "[Unit]\n# After specifies the execution order because Require does not wait for depndencies to finish execution before starting the current service.\nAfter=NetworkManager-wait-online.service\n# Depend and start another service.\nWants=NetworkManager-wait-online.service\n[Mount]\nWhat=192.168.31.109:/mnt/hdd1tb/shared\nWhere=/var/mnt/shared\nType=nfs\n[Install]\nWantedBy=local-fs.target\n",
         "enabled": true,
         "name": "var-mnt-shared.mount"
       },
