@@ -3,6 +3,7 @@
 # Check if env is passed
 [ $# != 1 ] && { echo "Usage: ./create-ipxe-iso.sh <env>"; exit 1; }
 
+branch=$1
 download_folder="ipxe"
 scriptname="${branch}-coreos-install.ipxe"
 isoname="${branch}-coreos-ipxe.iso"
