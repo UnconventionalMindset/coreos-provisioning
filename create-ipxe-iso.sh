@@ -17,7 +17,7 @@ full_path="$HOME/${download_folder}"
 apt -y install gcc binutils make perl liblzma-dev mtools genisoimage syslinux isolinux
 
 # Cleanup in case script fails
-rm -f "$HOME/$scriptname"
+rm -f "$HOME/${scriptname}"
 rm -rf "${full_path}/"
 rm -f "/var/lib/vz/template/iso/${isoname}"
 
@@ -35,7 +35,7 @@ sed -i 's/#undef[[:space:]]*\(DOWNLOAD_PROTO_HTTPS\)/#define \1/' config/general
 make bin/ipxe.iso EMBED="$HOME/${scriptname}"
 
 # Puts ISO in the right folder to be available in Proxmox
-mv bin/ipxe.iso /var/lib/vz/template/iso/coreos-ipxe.iso
+mv bin/ipxe.iso /var/lib/vz/template/iso/${isoname}
 
 # Cleanup after succeeding
 rm -f "$HOME/${scriptname}"
