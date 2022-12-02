@@ -1,6 +1,6 @@
 #!ipxe
 
-set BRANCH main
+set BRANCH dev
 
 set STREAM stable
 set VERSION 36.20221001.3.0
