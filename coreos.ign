@@ -57,11 +57,32 @@
           "compression": "",
           "source": "data:,export%20EDITOR%3Dvim%0A"
         }
+      },
+      {
+        "overwrite": true,
+        "path": "/var/home/core/download-apps-docker-composes.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3yPQWrEMAxF9zmFSncFjeh2oEfosgewZU1sElvGUnL+kqZQCkO2//H1n15faLNBsTSKwfI0FwdetQkgPsrqMj7iqvHeziiO0DhDkh0QmyJn4UU3B8Qk3TO8A6L1MEwgu3e7E83F8xZvrJW+GmvbpXnRFtbP0pKJE+sQNTTxrd8OAdrDoKxVftA/PnG6xEf93P9zM3EIvdv53G861SWVASTOlJQXGcRau5rQVPerDTpu0dvz6qiA43Gp+B0AAP//BJBly3MBAAA="
+        }
+      },
+      {
+        "overwrite": true,
+        "path": "/var/home/core/deploy-stack.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/zzMwa6CMBBG4X2f4r+hizbkZtxXEt7DsIC2xkZgTGdcGMK7uxBdn3yn+aOnVJrKStMoNxN5ebBk6Zx1s4CyRkoc77nSkch7c+UK51DQ4RRQcIbdmi+99MOOgNK28D4gsQHkJZqXqDNEx6r4LP8P0tvth20ZdpN4zeYdAAD//0xaT/GbAAAA"
+        }
       }
     ]
   },
   "systemd": {
     "units": [
+      {
+        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "download-apps-docker-composes.service"
+      },
       {
         "contents": "[Unit]\nDescription=Layer vim with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service rpm-ostree-install-docker-compose.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive vim\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
@@ -71,6 +92,15 @@
         "contents": "[Unit]\nDescription=Layer docker-compose with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive docker-compose\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
         "name": "rpm-ostree-install-docker-compose.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=%i service with docker compose\nPartOf=docker.service\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nWorkingDirectory=/etc/docker/compose/%i\nExecStart=/usr/bin/docker-compose up -d --remove-orphans\nExecStop=/usr/bin/docker-compose down\n\n[Install]\nWantedBy=multi-user.target\n",
+        "name": "docker-compose@.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Deploy stack with docker compose\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "deploy-stack.service"
       },
       {
         "contents": "[Unit]\n# After specifies the execution order because Require does not wait for depndencies to finish execution before starting the current service.\nAfter=NetworkManager-wait-online.service\n# Depend and start another service.\nWants=NetworkManager-wait-online.service\n[Mount]\nWhat=192.168.31.109:/mnt/hdd1tb/shared\nWhere=/var/mnt/shared\nType=nfs\nOptions=_netdev,auto\n[Install]\nWantedBy=local-fs.target\n",
