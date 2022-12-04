@@ -1,0 +1,22 @@
+---
+version: "3.3"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Zurich
+      - JELLYFIN_PublishedServerUrl=192.168.31.200 #optional
+    volumes:
+      - /var/mnt/shared/apps-volume/docker/jellyfin/config:/config
+      - /var/mnt/shared/apps-volume/docker/jellyfin/data/tvshows:/data/tvshows
+      - /var/mnt/shared/apps-volume/docker/jellyfin/data/movies:/data/movies
+    ports:
+      - 8096:8096
+      - 8920:8920
+      - 7359:7359/udp
+      - 1900:1900/udp
+    restart: unless-stopped
+    privileged: true

@@ -1,0 +1,17 @@
+---
+version: "3"
+services:
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: hass
+    network_mode: host
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Zurich
+    volumes:
+      - /var/mnt/shared/apps-volume/docker/homeassistant/config:/config
+    ports:
+      - 8123:8123
+    restart: unless-stopped
+    privileged: true
