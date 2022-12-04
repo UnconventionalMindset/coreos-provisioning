@@ -4,7 +4,7 @@ set BRANCH dev
 
 set STREAM stable
 set VERSION 37.20221106.3.0
-set CONFIGURL https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/${BRANCH}/coreos.ign
+set CONFIGURL https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/${BRANCH}/install.ign
 
 set BASEURL https://builds.coreos.fedoraproject.org/prod/streams/${STREAM}/builds/${VERSION}/x86_64
 
