@@ -49,11 +49,29 @@
           "source": "data:,%23%20Raise%20console%20message%20logging%20level%20from%20DEBUG%20(7)%20to%20WARNING%20(4)%0A%23%20to%20hide%20audit%20messages%20from%20the%20interactive%20console%0Akernel.printk%3D4%0A"
         },
         "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/profile.d/zz-default-editor.sh",
+        "contents": {
+          "compression": "",
+          "source": "data:,export%20EDITOR%3Dvim%0A"
+        }
       }
     ]
   },
   "systemd": {
     "units": [
+      {
+        "contents": "[Unit]\nDescription=Layer vim with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service rpm-ostree-install-docker-compose.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive vim\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install-vim.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Layer docker-compose with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive docker-compose\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install-docker-compose.service"
+      },
       {
         "contents": "[Unit]\n# After specifies the execution order because Require does not wait for depndencies to finish execution before starting the current service.\nAfter=NetworkManager-wait-online.service\n# Depend and start another service.\nWants=NetworkManager-wait-online.service\n[Mount]\nWhat=192.168.31.109:/mnt/hdd1tb/shared\nWhere=/var/mnt/shared\nType=nfs\nOptions=_netdev,auto\n[Install]\nWantedBy=local-fs.target\n",
         "enabled": true,
