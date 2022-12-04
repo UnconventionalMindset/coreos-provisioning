@@ -59,9 +59,47 @@ storage:
       contents:
         inline: |
           export EDITOR=vim
-
+    - path: /var/home/core/download-apps-docker-composes.sh
+      overwrite: true
+      contents:
+        inline: |
+          #!/usr/bin/bash
+          git clone --filter=blob:none --branch dev --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-setup.git /var/home/core/coreos-setup
+          cd /var/home/core/coreos-setup
+          git sparse-checkout set apps
+          git checkout
+          mkdir /etc/docker/compose/
+          mv /var/home/core/coreos-setup/apps/* /etc/docker/compose/
+          rm -rf /var/home/core/coreos-setup
+    - path: /var/home/core/deploy-stack.sh
+      overwrite: true
+      contents:
+        inline: |
+          #!/usr/bin/bash
+          composes=($(ls /etc/docker/compose/))
+          for (( i = 0; i < ${#composes[@]} ; i++ )); do
+            systemctl start docker-compose@${composes[$i]}
+          done
+          
 systemd:
   units:
+    - name: download-apps-docker-composes.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Downloads apps docker composes
+        Wants=network-online.target
+        After=network-online.target
+        ConditionPathExists=!/var/lib/%N.stamp
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh
+        ExecStart=/bin/touch /var/lib/%N.stamp
+
+        [Install]
+        WantedBy=multi-user.target
     # Installing vim as a layered package with rpm-ostree
     - name: rpm-ostree-install-vim.service
       enabled: true
@@ -109,6 +147,38 @@ systemd:
         # prevent the service from failing.
         ExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive docker-compose
         ExecStart=/bin/touch /var/lib/%N.stamp
+
+        [Install]
+        WantedBy=multi-user.target
+    - name: docker-compose@.service
+      contents: |
+        [Unit]
+        Description=%i service with docker compose
+        PartOf=docker.service
+        Wants=network-online.target docker.service rpm-ostree-install-docker-compose.service
+        After=network-online.target rpm-ostree-install-docker-compose.service
+        
+        [Service]
+        Type=oneshot
+        RemainAfterExit=true
+        WorkingDirectory=/etc/docker/compose/%i
+        ExecStart=/usr/bin/docker-compose up -d --remove-orphans
+        ExecStop=/usr/bin/docker-compose down
+
+        [Install]
+        WantedBy=multi-user.target
+    - name: deploy-stack.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Deploy stack with docker compose
+        Wants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+        After=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+        
+        [Service]
+        Type=oneshot
+        RemainAfterExit=true
+        ExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh
 
         [Install]
         WantedBy=multi-user.target
