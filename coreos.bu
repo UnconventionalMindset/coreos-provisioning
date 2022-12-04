@@ -194,7 +194,7 @@ systemd:
         What=192.168.31.109:/mnt/hdd1tb/shared
         Where=/var/mnt/shared
         Type=nfs
-        Options=_netdev,auto,anonuid=0,anongid=0
+        Options=_netdev,auto
         [Install]
         WantedBy=local-fs.target
     - name: docker.portainer.service
