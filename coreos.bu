@@ -2,10 +2,10 @@ variant: fcos
 version: 1.4.0
 passwd:
   users:
-    - name: jac
+    - name: core
       groups:
         - docker
-        - name: marketing
+        - name: homeuser
           gid: 2000
       password_hash: $y$j9T$OVO6S5zyKdrnoYOq99WD31$L/mPYI9vAHqTqRDyT6sVjiMVoov/9GVQoKuRoIEPvNA
       ssh_authorized_keys:
