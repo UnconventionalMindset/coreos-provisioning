@@ -7,7 +7,7 @@ services:
     network_mode: host
     environment:
       - PUID=1000
-      - PGID=2000
+      - PGID=1000
       - TZ=Europe/Zurich
     volumes:
       - /var/mnt/shared/apps-volume/docker/homeassistant/config:/config
