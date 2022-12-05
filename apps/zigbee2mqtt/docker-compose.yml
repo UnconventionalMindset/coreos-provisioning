@@ -14,4 +14,4 @@ services:
     environment:
       - TZ=Europe/Zurich
     devices:
-      - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_22fe32bb2286ec118b52631719c2d21c-if00-port0:/dev/ttyACM0
+      - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_22fe32bb2286ec118b52631719c2d21c-if00-port0:/dev/ttyUSB0
