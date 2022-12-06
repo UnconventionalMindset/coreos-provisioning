@@ -5,6 +5,8 @@ services:
     image: koenkk/zigbee2mqtt
     restart: unless-stopped
     user: 1000:1000
+    depends_on:
+      - mosquitto
     group_add:
       - dialout
     volumes:
