@@ -4,7 +4,9 @@ services:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt
     restart: unless-stopped
-    privileged: true
+    user: 1000:1000
+    group_add:
+      - dialout
     volumes:
       - /var/mnt/shared/apps-volume/docker/z2mqtt/config:/app/data
       - /run/udev:/run/udev:ro
