@@ -7,13 +7,18 @@
       {
         "gid": 1000,
         "name": "homeuser"
+      },
+      {
+        "gid": 18,
+        "name": "dialout"
       }
     ],
     "users": [
       {
         "groups": [
           "docker",
-          "homeuser"
+          "homeuser",
+          "dialout"
         ],
         "name": "core",
         "passwordHash": "$y$j9T$OVO6S5zyKdrnoYOq99WD31$L/mPYI9vAHqTqRDyT6sVjiMVoov/9GVQoKuRoIEPvNA",
