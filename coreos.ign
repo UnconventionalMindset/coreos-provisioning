@@ -7,10 +7,6 @@
       {
         "gid": 1000,
         "name": "homeuser"
-      },
-      {
-        "gid": 18,
-        "name": "dialout"
       }
     ],
     "users": [
