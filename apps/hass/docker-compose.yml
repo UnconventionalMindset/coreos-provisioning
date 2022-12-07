@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/Zurich
     volumes:
-      - /var/mnt/shared/apps-volume/docker/homeassistant/config:/config
+      - /var/mnt/shared/apps/docker/homeassistant/config:/config
     # ports:
     #   - 8123:8123
     restart: unless-stopped

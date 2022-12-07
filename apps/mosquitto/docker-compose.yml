@@ -3,9 +3,9 @@ services:
     container_name: mosquitto
     image: eclipse-mosquitto:2
     volumes:
-      - /var/mnt/shared/apps-volume/docker/mosquitto/config/:/mosquitto/config/:rw
-      - /var/mnt/shared/apps-volume/docker/mosquitto/log/:/mosquitto/log/
-      - /var/mnt/shared/apps-volume/docker/mosquitto/data/:/mosquitto/data/
+      - /var/mnt/shared/apps/docker/mosquitto/config/:/mosquitto/config/:rw
+      - /var/mnt/shared/apps/docker/mosquitto/log/:/mosquitto/log/
+      - /var/mnt/shared/apps/docker/mosquitto/data/:/mosquitto/data/
     ports:
       - 1883:1883
       - 9002:9001

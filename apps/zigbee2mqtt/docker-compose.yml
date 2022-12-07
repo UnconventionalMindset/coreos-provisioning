@@ -10,7 +10,7 @@ services:
     group_add:
       - dialout
     volumes:
-      - /var/mnt/shared/apps-volume/docker/z2mqtt/config:/app/data
+      - /var/mnt/shared/apps/docker/z2mqtt/config:/app/data
       - /run/udev:/run/udev:ro
     ports:
       # Frontend port
