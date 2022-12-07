@@ -11,8 +11,8 @@ services:
       - JELLYFIN_PublishedServerUrl=192.168.31.200 #optional
     volumes:
       - /var/mnt/shared/apps-volume/docker/jellyfin/config:/config
-      - /var/mnt/shared/apps-volume/docker/jellyfin/data/tvshows:/data/tvshows
-      - /var/mnt/shared/apps-volume/docker/jellyfin/data/movies:/data/movies
+      - /var/mnt/shared/apps-volume/docker/files/series:/data/tvshows
+      - /var/mnt/shared/apps-volume/docker/files/films/movies:/data/movies
     ports:
       - 8096:8096
       - 8920:8920
