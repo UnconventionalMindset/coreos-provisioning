@@ -20,7 +20,7 @@ jobs:
         do
           filename=$(basename $entry .bu)
           docker run -i --rm quay.io/coreos/butane:release --pretty --strict < butane/$filename.bu > ignition/$filename.ign
-          docker run -i --rm quay.io/coreos/ignition-validate:release - < $filename.ign
+          docker run -i --rm quay.io/coreos/ignition-validate:release - < ignition/$filename.ign
         done
         git config --global user.name 'UnconventionalMindset'
         git config --global user.email '11658632+UnconventionalMindset@users.noreply.github.com'
