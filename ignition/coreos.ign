@@ -3,6 +3,9 @@
     "config": {
       "merge": [
         {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign"
+        },
+        {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-download.ign"
         },
         {
@@ -28,9 +31,6 @@
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign"
         }
       ]
     },
