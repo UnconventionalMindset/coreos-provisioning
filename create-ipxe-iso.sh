@@ -7,7 +7,7 @@ branch=$1
 download_folder="ipxe"
 scriptname="${branch}-coreos-install.ipxe"
 isoname="${branch}-coreos-ipxe.iso"
-install_script_url="https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/${branch}/coreos-install.ipxe"
+install_script_url="https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/${branch}/coreos-install.ipxe"
 
 # path to download the ipxe script
 full_path="$HOME/${download_folder}"

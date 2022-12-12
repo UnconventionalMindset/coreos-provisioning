@@ -1,4 +1,4 @@
-# Fedora Core OS setup
+# Fedora Core OS provisioning
 
 ## Goal
 

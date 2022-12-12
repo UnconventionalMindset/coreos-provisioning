@@ -7,13 +7,13 @@ storage:
       contents:
         inline: |
           #!/usr/bin/bash
-          git clone --filter=blob:none --branch dev --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-setup.git /var/home/core/coreos-setup
-          cd /var/home/core/coreos-setup
+          git clone --filter=blob:none --branch main --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-provisioning.git /var/home/core/coreos-provisioning
+          cd /var/home/core/coreos-provisioning
           git sparse-checkout set apps
           git checkout
           mkdir /etc/docker/compose/
-          mv /var/home/core/coreos-setup/apps/* /etc/docker/compose/
-          rm -rf /var/home/core/coreos-setup
+          mv /var/home/core/coreos-provisioning/apps/* /etc/docker/compose/
+          rm -rf /var/home/core/coreos-provisioning
     - path: /var/home/core/deploy-stack.sh
       overwrite: true
       contents:
