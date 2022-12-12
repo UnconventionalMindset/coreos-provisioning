@@ -3,7 +3,7 @@ version: 1.4.0
 storage:
   files:
     # Systemd Podman-Compose rootful Service
-    - path: /usr/lib/systemd/system/podman-compose@.service
+    - path: /etc/systemd/system/podman-compose@.service
       overwrite: true
       contents:
         inline: |
