@@ -53,18 +53,3 @@ systemd:
 
         [Install]
         WantedBy=multi-user.target
-    - name: deploy-stack.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Deploy stack with docker compose
-        Wants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
-        After=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
-        
-        [Service]
-        Type=oneshot
-        RemainAfterExit=true
-        ExecStart=/bin/bash /var/home/core/deploy-stack.sh
-
-        [Install]
-        WantedBy=multi-user.target

@@ -10,8 +10,8 @@ storage:
         inline: |
           [Unit]
           Description=%i rootful pod (podman-compose)
-          After=network-online.target var-mnt-shared.mount local-fs.target
-          Wants=network-online.target var-mnt-shared.mount local-fs.target
+          After=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
+          Wants=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
           
           [Service]
           Type=oneshot
@@ -30,8 +30,8 @@ storage:
         inline: |
           [Unit]
           Description=%i rootless pod (podman-compose)
-          After=network-online.target var-mnt-shared.mount local-fs.target
-          Wants=network-online.target var-mnt-shared.mount local-fs.target
+          After=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
+          Wants=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
           
           [Service]
           Environment=PODMAN_USERNS=keep-id
