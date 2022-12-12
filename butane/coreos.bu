@@ -1,5 +1,6 @@
 variant: fcos
 version: 1.4.0
+ignition:
   config:
     merge:
       - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/apps.ign
