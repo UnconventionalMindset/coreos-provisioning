@@ -1,23 +1,22 @@
----
-version: "3.3"
+version: '3.5'
 services:
+  # Needs to be run like: PODMAN_USERNS=keep-id podman-compose up
+  # Until this is solved: https://github.com/containers/podman-compose/issues/307
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
+    image: jellyfin/jellyfin
     container_name: jellyfin
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Zurich
-      - JELLYFIN_PublishedServerUrl=192.168.31.200 #optional
+    user: 1000:1000
     volumes:
       - /var/mnt/shared/apps/docker/jellyfin/config:/config
       - /var/mnt/shared/apps/files/series:/data/tvshows
       - /var/mnt/shared/apps/files/films:/data/movies
       - /var/home/core/apps/jellyfin/cache:/cache
+    restart: 'unless-stopped'
+    environment:
+      - JELLYFIN_PublishedServerUrl=192.168.31.200
     ports:
       - 8096:8096
       - 8920:8920
       - 7359:7359/udp
       - 1901:1900/udp
-    restart: unless-stopped
-    privileged: true
+    restart: 'unless-stopped'

@@ -1,0 +1,70 @@
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    - path: /var/home/core/download-apps-docker-composes.sh
+      overwrite: true
+      contents:
+        inline: |
+          #!/usr/bin/bash
+          podman_rootless=(jellyfin)
+          podman_rootful=()
+          docker=()
+          git clone --filter=blob:none --branch main --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-provisioning.git /var/home/core/coreos-provisioning
+          cd /var/home/core/coreos-provisioning
+          git sparse-checkout set apps
+          git checkout
+          mkdir -p /var/home/core/.config/containers/compose/
+          for entry in $podman_rootless
+          do
+            mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /var/home/core/.config/containers/compose/
+          done
+
+          mkdir -p /etc/container/compose/
+          for entry in $podman_rootful
+          do
+            mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /etc/containers/compose/
+          done
+
+          mkdir -p /etc/docker/compose/
+          for entry in $docker
+          do
+            mv /var/home/core/coreos-provisioning/apps/$entry/docker-compose.yml /etc/docker/compose/
+          done
+
+          rm -rf /var/home/core/coreos-provisioning
+
+systemd:
+  units:
+    - name: download-apps-docker-composes.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Downloads apps docker composes
+        Wants=network-online.target
+        After=network-online.target
+        ConditionPathExists=!/var/lib/%N.stamp
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh
+        ExecStart=/bin/touch /var/lib/%N.stamp
+
+        [Install]
+        WantedBy=multi-user.target
+    - name: deploy-stack.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Deploy stack with docker compose
+        Wants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+        After=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+        
+        [Service]
+        Type=oneshot
+        RemainAfterExit=true
+        ExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh
+
+        [Install]
+        WantedBy=multi-user.target

@@ -1,0 +1,45 @@
+variant: fcos
+version: 1.4.0
+storage:
+  directories:
+    - path: /home/core/.config
+      mode: 0770
+      user:
+        name: core
+      group:
+        name: homeuser
+    - path: /home/core/.config/systemd
+      mode: 0770
+      user:
+        name: core
+      group:
+        name: homeuser
+    - path: /home/core/.config/systemd/user
+      mode: 0770
+      user:
+        name: core
+      group:
+        name: homeuser
+    - path: /home/core/.config/systemd/user/default.target.wants
+      mode: 0770
+      user:
+        name: core
+      group:
+        name: homeuser
+  files:
+    # Rootless containers
+
+    # Jellyfin
+    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service
+      user:
+        name: core
+      group:
+        name: homeuser
+      target: /home/core/.config/containers/compose/docker-compose@.service
+      hard: false
+    
+
+systemd:
+  units:
+    # Rootful containers
+        

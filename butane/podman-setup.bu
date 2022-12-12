@@ -1,0 +1,41 @@
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    # Systemd Podman-Compose rootful Service
+    - path: /usr/lib/systemd/system/podman-compose@.service
+      overwrite: true
+      contents:
+        inline: |
+          [Unit]
+          Description=%i rootful pod (podman-compose)
+          After=network-online.target
+          Wants=network-online.target
+          
+          [Service]
+          Type=oneshot
+          RemainAfterExit=true
+          WorkingDirectory=/etc/containers/compose/%i
+          ExecStart=/usr/bin/podman-compose up -d --remove-orphans
+          ExecStop=/usr/bin/podman-compose down
+          
+          [Install]
+          WantedBy=multi-user.target
+    # Systemd Podman-Compose rootless Service
+    - path: /usr/lib/systemd/user/podman-compose@.service
+      overwrite: true
+      contents:
+        inline: |
+          [Unit]
+          Description=%i rootless pod (podman-compose)
+          
+          [Service]
+          Environment=PODMAN_USERNS=keep-id
+          Type=oneshot
+          RemainAfterExit=true
+          WorkingDirectory=%h/.config/containers/compose/%i
+          ExecStart=/usr/bin/podman-compose up -d --remove-orphans
+          ExecStop=/usr/bin/podman-compose down
+          
+          [Install]
+          WantedBy=default.target
