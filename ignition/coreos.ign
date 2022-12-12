@@ -1,46 +1,28 @@
 {
   "ignition": {
+    "config": {
+      "merge": [
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/apps.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/install-programs.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/network.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/nfs.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/users_and_groups.ign"
+        }
+      ]
+    },
     "version": "3.3.0"
-  },
-  "passwd": {
-    "groups": [
-      {
-        "gid": 1000,
-        "name": "homeuser"
-      }
-    ],
-    "users": [
-      {
-        "groups": [
-          "docker",
-          "homeuser"
-        ],
-        "name": "core",
-        "sshAuthorizedKeys": [
-          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoPJQAHkfSRIfS05ptesdKwTX7ererHcTZ7pKWi7yUqOQv1e2xpfNBcfx/trwzITJe9N7bwp7t6gpPY2/yBr8F6TenigFWhDaF3Qi9kdSlv64eOsPv6iTg0URH7RE4RQwdArPuwAEBA79BOVoJ0qG/zgn0LOlqYGE/EameYxtgzDJNjXPWOi6OkPKhOEc00+wWGucsCw/8a6rzaMbQHn647yiS7XUJ9/QgMwZ5tqT+Fw/1dxzV4zrWK5MVEXlN5wRZEzukadPQJKyZhhhx3o7MqEVOsTHvyBln6NVJGFawQY7B+ffN/+9n6pEuskWCqngywqAvDXyRS7zD/Dxqv5pjzSQI2fkyuM21oRcKlSYx2AB4L46J6MRJ4ZLA5dhY0fwv868F5VFmJZ2AsDmaGFCqdXTMCv6VRnghJo75oybv+/eoV53NETrTeB4XsPOxSZOHmK93zJzGw2hT4X/ZTvyVbnCyU+Z4sg2iU8ZVE3pHJi8ZQ3hadW0N+CAAmVQ+zsE= nousername"
-        ],
-        "uid": 1000
-      }
-    ]
   },
   "storage": {
     "files": [
-      {
-        "path": "/etc/NetworkManager/system-connections/wired.nmconnection",
-        "contents": {
-          "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/0yPUY6rMAxF/72WFx4GSkFVVoL4MLEzjQQOSkJH7H7U6VSq/Gf5+Nw7uagqroSoMwS23yEJw3EEtnU7Ig+4GOILm9Z3g6EOF+PxcnXi5eoWhHLuYqXcJakUoKPEv4dmTyGmUE5rxnGEoEWSJydGaRMruvcZB4Dpzc4AU9gf3QzEnCRntDg2FfZD1WLV1PX/pvv3sUFgzZ8neBuq37nBRqfxFFbrac0Cm5R7ZLuRHrS+NP1LY75EzRZZbC60rPIM/SB3vpFnH/gJAAD///kksWgjAQAA"
-        },
-        "mode": 384
-      },
-      {
-        "path": "/etc/hostname",
-        "contents": {
-          "compression": "",
-          "source": "data:,coreos%0A"
-        },
-        "mode": 420
-      },
       {
         "path": "/etc/profile.d/systemd-pager.sh",
         "contents": {
@@ -56,69 +38,11 @@
           "source": "data:,%23%20Raise%20console%20message%20logging%20level%20from%20DEBUG%20(7)%20to%20WARNING%20(4)%0A%23%20to%20hide%20audit%20messages%20from%20the%20interactive%20console%0Akernel.printk%3D4%0A"
         },
         "mode": 420
-      },
-      {
-        "overwrite": true,
-        "path": "/etc/profile.d/zz-default-editor.sh",
-        "contents": {
-          "compression": "",
-          "source": "data:,export%20EDITOR%3Dvim%0A"
-        }
-      },
-      {
-        "overwrite": true,
-        "path": "/var/home/core/download-apps-docker-composes.sh",
-        "contents": {
-          "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/3yPQWrEMAxF9zmFSncFjeh2oEfosgewZU1sElvGUnL+kqZQCkO2//H1n15faLNBsTSKwfI0FwdetQkgPsrqMj7iqvHeziiO0DhDkh0QmyJn4UU3B8Qk3TO8A6L1MEwgu3e7E83F8xZvrJW+GmvbpXnRFtbP0pKJE+sQNTTxrd8OAdrDoKxVftA/PnG6xEf93P9zM3EIvdv53G861SWVASTOlJQXGcRau5rQVPerDTpu0dvz6qiA43Gp+B0AAP//BJBly3MBAAA="
-        }
-      },
-      {
-        "overwrite": true,
-        "path": "/var/home/core/deploy-stack.sh",
-        "contents": {
-          "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/zzMwa6CMBBG4X2f4r+hizbkZtxXEt7DsIC2xkZgTGdcGMK7uxBdn3yn+aOnVJrKStMoNxN5ebBk6Zx1s4CyRkoc77nSkch7c+UK51DQ4RRQcIbdmi+99MOOgNK28D4gsQHkJZqXqDNEx6r4LP8P0tvth20ZdpN4zeYdAAD//0xaT/GbAAAA"
-        }
       }
     ]
   },
   "systemd": {
     "units": [
-      {
-        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "download-apps-docker-composes.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=Layer vim with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service rpm-ostree-install-docker-compose.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive vim\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "rpm-ostree-install-vim.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=Layer docker-compose with rpm-ostree\nWants=network-online.target\nAfter=network-online.target\n# We run before `zincati.service` to avoid conflicting rpm-ostree\n# transactions.\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\n# `--allow-inactive` ensures that rpm-ostree does not return an error\n# if the package is already installed. This is useful if the package is\n# added to the root image in a future Fedora CoreOS release as it will\n# prevent the service from failing.\nExecStart=/usr/bin/rpm-ostree install --apply-live --allow-inactive docker-compose\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "rpm-ostree-install-docker-compose.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=%i service with docker compose\nPartOf=docker.service\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nWorkingDirectory=/etc/docker/compose/%i\nExecStart=/usr/bin/docker-compose up -d --remove-orphans\nExecStop=/usr/bin/docker-compose down\n\n[Install]\nWantedBy=multi-user.target\n",
-        "name": "docker-compose@.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=Deploy stack with docker compose\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "deploy-stack.service"
-      },
-      {
-        "contents": "[Unit]\n# After specifies the execution order because Require does not wait for depndencies to finish execution before starting the current service.\nAfter=NetworkManager-wait-online.service\n# Depend and start another service.\nWants=NetworkManager-wait-online.service\n[Mount]\nWhat=192.168.31.109:/mnt/hdd1tb/shared\nWhere=/var/mnt/shared\nType=nfs\nOptions=_netdev,auto\n[Install]\nWantedBy=local-fs.target\n",
-        "enabled": true,
-        "name": "var-mnt-shared.mount"
-      },
-      {
-        "contents": "[Unit]\nDescription=Portainer Admin Container\nAfter=docker.service var-mnt-shared.mount\nRequires=docker.service network.target network-online.target\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nTimeoutStartSec=0\nExecStartPre=-/usr/bin/docker stop %n\nExecStartPre=-/usr/bin/docker rm %n\nExecStartPre=/usr/bin/docker pull portainer/portainer-ce:latest\nExecStart=-/usr/bin/mkdir -p /mnt/shared/apps/docker/portainer\n# Privileged mode is required for binding to local socket to work due to SELINUX (https://github.com/portainer/portainer/issues/849)\nExecStart=/usr/bin/docker run \\\n  --privileged=true \\\n  -d \\\n  -p 9000:9000 \\\n  --name %n \\\n  --restart always \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v /mnt/shared/apps/docker/portainer:/data \\\n  portainer/portainer-ce:latest \\\n    --templates https://raw.githubusercontent.com/UnconventionalMindset/portainer/main/template.json \\\n    --admin-password-file /data/.secrets/portainer_pass\nExecStop=/usr/bin/docker stop -t 15 %n\n\n[Install]\nWantedBy=multi-user.target",
-        "enabled": true,
-        "name": "docker.portainer.service"
-      },
       {
         "dropins": [
           {
