@@ -10,7 +10,7 @@ storage:
           [Unit]
           Description=%i rootful pod (podman-compose)
           After=network-online.target var-mnt-shared.mount local-fs.target systemd-sysusers.service systemd-journald.service
-          Wants=network-online.target var-mnt-shared.mount
+          Wants=network-online.target var-mnt-shared.mount local-fs.target systemd-sysusers.service systemd-journald.service
           
           [Service]
           Type=oneshot
@@ -29,7 +29,7 @@ storage:
           [Unit]
           Description=%i rootless pod (podman-compose)
           After=network-online.target var-mnt-shared.mount local-fs.target systemd-sysusers.service systemd-journald.service
-          Wants=network-online.target var-mnt-shared.mount
+          Wants=network-online.target var-mnt-shared.mount local-fs.target systemd-sysusers.service systemd-journald.service
           
           [Service]
           Environment=PODMAN_USERNS=keep-id
