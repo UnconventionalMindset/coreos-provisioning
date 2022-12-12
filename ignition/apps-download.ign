@@ -17,14 +17,9 @@
   "systemd": {
     "units": [
       {
-        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target",
         "enabled": true,
         "name": "download-apps-docker-composes.service"
-      },
-      {
-        "contents": "[Unit]\nDescription=Deploy stack with docker compose\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/bin/bash /var/home/core/deploy-stack.sh\n\n[Install]\nWantedBy=multi-user.target",
-        "enabled": true,
-        "name": "deploy-stack.service"
       }
     ]
   }
