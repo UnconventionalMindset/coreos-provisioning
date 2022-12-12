@@ -31,7 +31,6 @@ storage:
 
     # Jellyfin
     - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service
-      mode: 0770
       user:
         id: 1000
       group:
