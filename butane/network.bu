@@ -1,0 +1,31 @@
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    - path: /etc/NetworkManager/system-connections/wired.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=wired
+          uuid=0391d81b-ad5d-3f48-a41b-f157cefe7cb1
+          type=ethernet
+          autoconnect-priority=-999
+          interface-name=enp6s18
+          
+          [ethernet]
+          
+          [ipv4]
+          address1=192.168.31.200/24,192.168.31.1
+          dns=192.168.31.1;8.8.8.8;
+          may-fail=false
+          method=manual
+          
+          [ipv6]
+          addr-gen-mode=stable-privacy
+          method=auto
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: |
+          coreos
