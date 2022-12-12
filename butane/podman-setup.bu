@@ -43,7 +43,6 @@ storage:
           
           [Install]
           WantedBy=default.target
-      mode: 0770
       user:
         id: 1000
       group:
