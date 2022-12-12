@@ -11,6 +11,7 @@ ignition:
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-apps.ign
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign
 
 storage:
