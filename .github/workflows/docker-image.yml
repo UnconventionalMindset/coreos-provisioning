@@ -24,5 +24,5 @@ jobs:
         done
         git config --global user.name 'UnconventionalMindset'
         git config --global user.email '11658632+UnconventionalMindset@users.noreply.github.com'
-        git commit --allow-empty -am "Automate ignition file generation from butane"
+        git commit --allow-empty -am "Automate ignition files generation from butane"
         git push
