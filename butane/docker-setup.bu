@@ -10,8 +10,8 @@ storage:
           [Unit]
           Description=%i service with docker compose
           PartOf=docker.service
-          Wants=network-online.target var-mnt-shared.mount rpm-ostree-install-docker-compose.service docker.service local-fs.target systemd-sysusers.service systemd-journald.service
-          After=network-online.target var-mnt-shared.mount rpm-ostree-install-docker-compose.service docker.service local-fs.target systemd-sysusers.service systemd-journald.service
+          Wants=network-online.target var-mnt-shared.mount rpm-ostree-install-docker-compose.service docker.service
+          After=network-online.target var-mnt-shared.mount rpm-ostree-install-docker-compose.service docker.service
           
           [Service]
           Type=oneshot
