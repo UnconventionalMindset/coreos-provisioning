@@ -17,7 +17,7 @@
           "id": 1000
         },
         "overwrite": true,
-        "path": "/usr/lib/systemd/user/podman-compose@.service",
+        "path": "/var/home/core/.config/containers/podman-compose@.service",
         "user": {
           "id": 1000
         },
