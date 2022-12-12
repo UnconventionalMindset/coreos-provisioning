@@ -3,7 +3,7 @@ version: 1.4.0
 storage:
   files:
     # Systemd Docker-Compose Service
-    - path: /usr/lib/systemd/system/docker-compose@.service
+    - path: /etc/systemd/system/docker-compose@.service
       overwrite: true
       contents:
         inline: |
