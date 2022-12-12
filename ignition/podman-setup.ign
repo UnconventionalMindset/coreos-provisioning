@@ -10,7 +10,8 @@
         "contents": {
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/6SQMW5CMRBEe5/CDVJSGJ/ARSIo0oZEFIjCsRdYYe9a6/WHf/tI6KdIkSr9vNG8OXwS6tFsoCfBpsgUVmiFWU+j2MbZPjXONZJLXBt3eDYvJwUJBHpjuTqmggRrjXIGtVMUV0ldv0SBvK48SG3hFIs79SVk9pG0/6fAHHYgEyY4mo+5QWCCfmE171Aj0mPf9o4aVAaYPcsV6bxBgaQsc/CgyScmjUgg3S9ifoVme4e00yga/Ojiv5D8b3s7mnXZOidQeQLH0i6R+gJy+5PLfCNjDm/UNZZyfHwA+XUOdRRFNzrIj913AAAA//+wGdCQkwEAAA=="
-        }
+        },
+        "mode": 420
       },
       {
         "group": {
@@ -25,7 +26,11 @@
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/6TQsW76MBDH8d1P4QXp/x9MnsADFRk6lFakiAGhyrUv5ER8Z50vAd6+EqJDh07d73vS73PYEerRrKFGwaLI5BdohVlHqNUWTvZf4ZQDuci5cIX/ZtUriCfQC8vZMY1IsNQgJ1A7B3GZ1NUhCKRl5onUjhzD6Pr6ODL7QFr/8sAcOpAZIxxNSzMKUwZS//a6flltPnZdu910/gxQHCbzfivgmaAOrGYLOSDdF7RXVK8ygdmznJFOaxSIynLzi6FZRqYeT01k0oAEUpsHQLNA014hdhpEfTNVaT6Rmp9KdirWJeucQOYZHEsZAtVHyOXXLvGFjDk8U9Uwjse7FaSnm0/Qh2nUb4KvAAAA//9NbpqiuQEAAA=="
         },
-        "mode": 504
+        "mode": 420
+      },
+      {
+        "path": "/var/lib/systemd/linger/core",
+        "mode": 420
       }
     ]
   }
