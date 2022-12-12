@@ -1,0 +1,48 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/var/home/core/download-apps-docker-composes.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4yPMWr0QAxGe59ifv4uMCvSLuQIKXOAGVm7I+yRBkn2+YPjQJot3H48np7+/4PNDSoL1OJtenIkXFUo5fzgNcg+6qr1LudUrQi21AtLylk0YyNcdIuU80wjWnpPOfso5pRaxPA7wJOjbfWG2uFLUGUnCVYp6yfL7BSAaqSeh+nOziosz9sRAnsxaNrph3iFTThfoQ7ZGfUX7BSpjOHny7/r1JeZLQEFwqy4kAFqH+oEU98vnIJDCW+vDdZTtseV4O8AAAD//+miQKmXAQAA"
+        }
+      },
+      {
+        "overwrite": true,
+        "path": "/var/home/core/deploy-stack.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/zzMwa6CMBBG4X2f4r+hizbkZtxXEt7DsIC2xkZgTGdcGMK7uxBdn3yn+aOnVJrKStMoNxN5ebBk6Zx1s4CyRkoc77nSkch7c+UK51DQ4RRQcIbdmi+99MOOgNK28D4gsQHkJZqXqDNEx6r4LP8P0tvth20ZdpN4zeYdAAD//0xaT/GbAAAA"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "download-apps-docker-composes.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=%i service with docker compose\nPartOf=docker.service\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nWorkingDirectory=/etc/docker/compose/%i\nExecStart=/usr/bin/docker-compose up -d --remove-orphans\nExecStop=/usr/bin/docker-compose down\n\n[Install]\nWantedBy=multi-user.target\n",
+        "name": "docker-compose@.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Deploy stack with docker compose\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "deploy-stack.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Portainer Admin Container\nAfter=docker.service var-mnt-shared.mount\nRequires=docker.service network.target network-online.target\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nTimeoutStartSec=0\nExecStartPre=-/usr/bin/docker stop %n\nExecStartPre=-/usr/bin/docker rm %n\nExecStartPre=/usr/bin/docker pull portainer/portainer-ce:latest\nExecStart=-/usr/bin/mkdir -p /mnt/shared/apps/docker/portainer\n# Privileged mode is required for binding to local socket to work due to SELINUX (https://github.com/portainer/portainer/issues/849)\nExecStart=/usr/bin/docker run \\\n  --privileged=true \\\n  -d \\\n  -p 9000:9000 \\\n  --name %n \\\n  --restart always \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v /mnt/shared/apps/docker/portainer:/data \\\n  portainer/portainer-ce:latest \\\n    --templates https://raw.githubusercontent.com/UnconventionalMindset/portainer/main/template.json \\\n    --admin-password-file /data/.secrets/portainer_pass\nExecStop=/usr/bin/docker stop -t 15 %n\n\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "docker.portainer.service"
+      }
+    ]
+  }
+}

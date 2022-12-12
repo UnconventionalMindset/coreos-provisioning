@@ -1,0 +1,25 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/NetworkManager/system-connections/wired.nmconnection",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/0yPUY6rMAxF/72WFx4GSkFVVoL4MLEzjQQOSkJH7H7U6VSq/Gf5+Nw7uagqroSoMwS23yEJw3EEtnU7Ig+4GOILm9Z3g6EOF+PxcnXi5eoWhHLuYqXcJakUoKPEv4dmTyGmUE5rxnGEoEWSJydGaRMruvcZB4Dpzc4AU9gf3QzEnCRntDg2FfZD1WLV1PX/pvv3sUFgzZ8neBuq37nBRqfxFFbrac0Cm5R7ZLuRHrS+NP1LY75EzRZZbC60rPIM/SB3vpFnH/gJAAD///kksWgjAQAA"
+        },
+        "mode": 384
+      },
+      {
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,coreos"
+        },
+        "mode": 420
+      }
+    ]
+  }
+}

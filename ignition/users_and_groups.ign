@@ -1,0 +1,26 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "groups": [
+      {
+        "gid": 1000,
+        "name": "homeuser"
+      }
+    ],
+    "users": [
+      {
+        "groups": [
+          "docker",
+          "homeuser"
+        ],
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoPJQAHkfSRIfS05ptesdKwTX7ererHcTZ7pKWi7yUqOQv1e2xpfNBcfx/trwzITJe9N7bwp7t6gpPY2/yBr8F6TenigFWhDaF3Qi9kdSlv64eOsPv6iTg0URH7RE4RQwdArPuwAEBA79BOVoJ0qG/zgn0LOlqYGE/EameYxtgzDJNjXPWOi6OkPKhOEc00+wWGucsCw/8a6rzaMbQHn647yiS7XUJ9/QgMwZ5tqT+Fw/1dxzV4zrWK5MVEXlN5wRZEzukadPQJKyZhhhx3o7MqEVOsTHvyBln6NVJGFawQY7B+ffN/+9n6pEuskWCqngywqAvDXyRS7zD/Dxqv5pjzSQI2fkyuM21oRcKlSYx2AB4L46J6MRJ4ZLA5dhY0fwv868F5VFmJZ2AsDmaGFCqdXTMCv6VRnghJo75oybv+/eoV53NETrTeB4XsPOxSZOHmK93zJzGw2hT4X/ZTvyVbnCyU+Z4sg2iU8ZVE3pHJi8ZQ3hadW0N+CAAmVQ+zsE= nousername"
+        ],
+        "uid": 1000
+      }
+    ]
+  }
+}
