@@ -5,6 +5,7 @@ storage:
     # Systemd Podman-Compose rootful Service
     - path: /etc/systemd/system/podman-compose@.service
       overwrite: true
+      mode: 0644
       contents:
         inline: |
           [Unit]
@@ -24,6 +25,7 @@ storage:
     # Systemd Podman-Compose rootless Service
     - path: /var/home/core/.config/containers/podman-compose@.service
       overwrite: true
+      mode: 0644
       contents:
         inline: |
           [Unit]
@@ -46,3 +48,5 @@ storage:
         id: 1000
       group:
         id: 1000
+    - path: /var/lib/systemd/linger/core
+      mode: 0644
