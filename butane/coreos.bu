@@ -3,11 +3,11 @@ version: 1.4.0
 ignition:
   config:
     merge:
-      - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/apps.ign
-      - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/install-programs.ign
-      - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/network.ign
-      - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/nfs.ign
-      - https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/users_and_groups.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/apps.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/install-programs.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/network.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/nfs.ign
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-setup/dev/ignition/users_and_groups.ign
 
 storage:
   files:
