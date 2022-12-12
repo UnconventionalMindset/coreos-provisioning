@@ -26,6 +26,25 @@ storage:
         id: 0
       target: /etc/systemd/system/docker-compose@.service
       hard: false
+  directories:
+    - path: /var/home/core/apps
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/jellyfin
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/jellyfin/cache
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
 
 systemd:
   units:
@@ -62,24 +81,3 @@ systemd:
 
         [Install]
         WantedBy=multi-user.target
-        
-storage:
-  directories:
-    - path: /var/home/core/apps
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
-    - path: /var/home/core/apps/jellyfin
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
-    - path: /var/home/core/apps/jellyfin/cache
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
