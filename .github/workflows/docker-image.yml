@@ -19,6 +19,7 @@ jobs:
         for entry in "butane"/*
         do
           filename=$(basename $entry .bu)
+          echo "Generating ignition for $filename"
           docker run -i --rm quay.io/coreos/butane:release --pretty --strict < butane/$filename.bu > ignition/$filename.ign
           docker run -i --rm quay.io/coreos/ignition-validate:release - < ignition/$filename.ign
         done
