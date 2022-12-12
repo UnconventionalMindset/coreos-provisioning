@@ -9,7 +9,7 @@
         "path": "/etc/systemd/system/docker-compose@.service",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/5SRMW8iMRCFe/8KN5Rmf4GLO0Fx1Z2ORBSIwvEO7IT1zGpmDOy/j8IuSBSRks6y35v3zfPuldD2bgWaBQdDprhAryBnzOAvaJ1vOZ9AfOYysIL7l8T+HuJ0u5yVbpvINBLYheUUmHokWFqSI5g/JwmFLGiXBNpl4Urmn/1ehhJYTQACklrq+zApwpz7SPp1MJCfJH17tO85pz4c9D5ORzUobdBRq4LoQ3h/eOcqlPr2Aed2m+m0dy/jAJEJtGNz/6EkpBv6+ooWTSq4LcsJ6bhCgWwsY2zAcjOxNTNbs0C3vkLeWBKLTVVp3pCa5wV8HXxofQgChc8QWIYukc5GHr70tXwh53Z/plr2t1+E9vcYS+0Nw+fScxfuIwAA///XWeKdKQIAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/9SSsW4qMRBFe3+FG0qzX+DiPUHxqheFRBSIwvEO7IT1zGpmDOzfR2EXJIp8QDrLnrn33Cvv3glt71agWXAwZIoL9Apyxgz+gtb5lvMJxGcuAyu4lyT2/xCn2+U86baJTCOBXVhOgalHgqUlOYL5c5JQyIJ2SaBdFq5kXoYSWE0AApJa6vswSYbZ6C7tn518zzn14aB3dR3VoLRBR60Koo/B+8MnV6HUtw/WPwcD+SWsbreZTnv3Ng4QmUA7NvcKJSHdkqyvaNGkgtuynJCOKxTIxjLGBiw3E1MzozYLdOsr5I0lsdhUleYDqXnO4+vgQ+tDECh8hsAydIl0XuThx72WL+Tc7t/U0v72LaD9O8ZSe8PwHXruwn0FAAD//9Xh3tx6AgAA"
         }
       }
     ]
