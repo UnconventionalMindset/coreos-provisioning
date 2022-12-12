@@ -5,5 +5,5 @@ storage:
     - path: /etc/coreos/installer.d/custom.yaml
       contents:
         inline: |
-          ignition-url: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/dev/ignition/coreos.ign
+          ignition-url: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/coreos.ign
           dest-device: /dev/sda
