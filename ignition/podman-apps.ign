@@ -1,0 +1,62 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "directories": [
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config/systemd",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config/systemd/user",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      }
+    ],
+    "links": [
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service",
+        "user": {
+          "id": 1000
+        },
+        "hard": false,
+        "target": "/home/core/.config/containers/compose/docker-compose@.service"
+      }
+    ]
+  }
+}

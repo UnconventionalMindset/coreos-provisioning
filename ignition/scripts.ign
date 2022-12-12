@@ -1,0 +1,26 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/usr/local/bin/zigbee-permissions.sh",
+        "contents": {
+          "compression": "",
+          "source": "data:,%23!%2Fbin%2Fbash%0Achown%201000%20%2Fdev%2FttyUSB0%0A"
+        },
+        "mode": 493
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nConditionPathExists=!/var/lib/zigbee-permissions\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/zigbee-permissions.sh\nExecStartPost=/usr/bin/touch /var/lib/zigbee-permissions\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "zigbee-permissions.service"
+      }
+    ]
+  }
+}

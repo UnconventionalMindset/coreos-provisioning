@@ -3,7 +3,13 @@
     "config": {
       "merge": [
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-download.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-apps.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign"
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign"
@@ -15,7 +21,16 @@
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign"
         },
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users_and_groups.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-apps.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign"
         }
       ]
     },

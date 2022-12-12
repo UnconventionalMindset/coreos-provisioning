@@ -1,0 +1,31 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "storage": {
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/var/home/core/download-apps-docker-composes.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/6zSwU7DMAwG4HuewogdtkMacZ20R+DIGaWJ25oldpSklfb2qOukjQGiIG5V8tf+HPnxwbTEprVlUEl8tPyaRWrAUg7bNwzh1BHvbq+6MRy2O+XFHTHPXz1VcEEYQeuOQsV8aIO0e16O2mzZDRAtMWjNot2A7ihjBa09pjrAE2hdks0FYag1lb0xPdVhbBsn0bywE56QKwnb8EzsC1bjJKMUnbJMVEiYuG9miJlsNoNEPCe+iinn16TmYgvqCi5YwaZUlpEvpyoePWXQ6b5q44Q76o0TrpYYczFOYpKCRnWSAbnmExDD5u7hlRcFEKcVTDNzzOZc6tpIX/o0pxh+o/LCqG7mwequuRX4bgz/bP8g+EG6bOR3zOX2r7zl78+2+56LK0fQuVuzZe8BAAD//1wtdXp/AwAA"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Downloads apps docker composes\nWants=network-online.target\nAfter=network-online.target\nConditionPathExists=!/var/lib/%N.stamp\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/bin/bash /var/home/core/download-apps-docker-composes.sh\nExecStart=/bin/touch /var/lib/%N.stamp\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "download-apps-docker-composes.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Deploy stack with docker compose\nWants=network-online.target docker.service rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\nAfter=network-online.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/bin/bash /var/home/core/deploy-stack.sh\n\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "deploy-stack.service"
+      }
+    ]
+  }
+}
