@@ -6,7 +6,7 @@
     "files": [
       {
         "overwrite": true,
-        "path": "/usr/lib/systemd/system/docker-compose@.service",
+        "path": "/etc/systemd/system/docker-compose@.service",
         "contents": {
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/4yQsW7CMBCG93sKL4zGT+ChFQydWpVWDIjBdQ44JbmzzhdC3r4SiSoxIHWzrP//Pt1/+GayI2ywZqViJBxX5CrqlTK6keziGsktqsvSF6kIH0nt/RTn3/WShH1iq5HRRtHWC3fEuLakZzT3GHVaei/VFNETV0td5+eEXxR/0JeToT6B/p8Ch938OsLXVDAKY72IwSf2ifju2N7IoumAsBdtic8bUswmOsWAlsNMDgs5rAi2N8w7S2oxDFXDD3F41LuhON847xV7uaIXLZfEdSlKedprZGSAw9t81PG+LDavU+yHzsgPFXXZAH4DAAD//806ptS9AQAA"
