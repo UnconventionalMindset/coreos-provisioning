@@ -6,7 +6,7 @@ storage:
       overwrite: true
       contents:
         inline: |
-          #!/usr/bin/bash
+          #!/bin/bash
           podman_rootless=(jellyfin)
           podman_rootful=()
           docker=()
@@ -48,7 +48,7 @@ systemd:
         [Service]
         Type=oneshot
         RemainAfterExit=yes
-        ExecStart=/usr/bin/bash /var/home/core/download-apps-docker-composes.sh
+        ExecStart=/bin/bash /var/home/core/download-apps-docker-composes.sh
         ExecStart=/bin/touch /var/lib/%N.stamp
 
         [Install]
@@ -64,7 +64,7 @@ systemd:
         [Service]
         Type=oneshot
         RemainAfterExit=true
-        ExecStart=/usr/bin/bash /var/home/core/deploy-stack.sh
+        ExecStart=/bin/bash /var/home/core/deploy-stack.sh
 
         [Install]
         WantedBy=multi-user.target

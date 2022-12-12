@@ -1,0 +1,27 @@
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    - path: /usr/local/bin/zigbee-permissions.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          chown 1000 /dev/ttyUSB0
+          
+systemd:
+  units:
+    - name: zigbee-permissions.service
+      enabled: true
+      contents: |
+        [Unit]
+        ConditionPathExists=!/var/lib/zigbee-permissions
+
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/local/bin/zigbee-permissions.sh
+        ExecStartPost=/usr/bin/touch /var/lib/zigbee-permissions
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
