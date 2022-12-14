@@ -23,7 +23,7 @@ storage:
           [Install]
           WantedBy=multi-user.target
     # Systemd Podman-Compose rootless Service
-    - path: /var/home/core/.config/containers/podman-compose@.service
+    - path: /var/home/core/.config/systemd/user/podman-compose@.service
       overwrite: true
       mode: 0644
       contents:
