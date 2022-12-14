@@ -2,6 +2,24 @@ variant: fcos
 version: 1.4.0
 storage:
   directories:
+    - path: /var/home/core/apps
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/jellyfin
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/jellyfin/cache
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
     - path: /home/core/.config
       mode: 0770
       user:

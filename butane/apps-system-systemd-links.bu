@@ -1,47 +1,13 @@
 variant: fcos
 version: 1.4.0
-storage:
-  links:
+systemd:
+  units:
     # Home Assistant
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@hass.service
-      user:
-        id: 0
-      group:
-        id: 0
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
+    - name: docker-compose@hass.service
+      enabled: true
     # Mosquitto
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@mosquitto.service
-      user:
-        id: 0
-      group:
-        id: 0
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
+    - name: docker-compose@mosquitto.service
+      enabled: true
     # Zigbee2MQTT
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@zigbee2mqtt.service
-      user:
-        id: 0
-      group:
-        id: 0
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
-  directories:
-    - path: /var/home/core/apps
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
-    - path: /var/home/core/apps/jellyfin
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
-    - path: /var/home/core/apps/jellyfin/cache
-      mode: 0770
-      user:
-        id: 1000
-      group:
-        id: 1000
+    - name: docker-compose@zigbee2mqtt.service
+      enabled: true
