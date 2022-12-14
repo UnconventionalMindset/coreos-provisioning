@@ -55,7 +55,7 @@
           "id": 1000
         },
         "hard": false,
-        "target": "/home/core/.config/containers/compose/docker-compose@.service"
+        "target": "/home/core/.config/systemd/user/podman-compose@.service"
       }
     ]
   }
