@@ -8,6 +8,36 @@
         "group": {
           "id": 1000
         },
+        "path": "/var/home/core/apps",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/jellyfin",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/jellyfin/cache",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
         "path": "/home/core/.config",
         "user": {
           "id": 1000

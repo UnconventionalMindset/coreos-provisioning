@@ -2,72 +2,19 @@
   "ignition": {
     "version": "3.3.0"
   },
-  "storage": {
-    "directories": [
+  "systemd": {
+    "units": [
       {
-        "group": {
-          "id": 1000
-        },
-        "path": "/var/home/core/apps",
-        "user": {
-          "id": 1000
-        },
-        "mode": 504
+        "enabled": true,
+        "name": "docker-compose@hass.service"
       },
       {
-        "group": {
-          "id": 1000
-        },
-        "path": "/var/home/core/apps/jellyfin",
-        "user": {
-          "id": 1000
-        },
-        "mode": 504
+        "enabled": true,
+        "name": "docker-compose@mosquitto.service"
       },
       {
-        "group": {
-          "id": 1000
-        },
-        "path": "/var/home/core/apps/jellyfin/cache",
-        "user": {
-          "id": 1000
-        },
-        "mode": 504
-      }
-    ],
-    "links": [
-      {
-        "group": {
-          "id": 0
-        },
-        "path": "/etc/systemd/system/multi-user.target.wants/docker-compose@hass.service",
-        "user": {
-          "id": 0
-        },
-        "hard": false,
-        "target": "/etc/systemd/system/docker-compose@.service"
-      },
-      {
-        "group": {
-          "id": 0
-        },
-        "path": "/etc/systemd/system/multi-user.target.wants/docker-compose@mosquitto.service",
-        "user": {
-          "id": 0
-        },
-        "hard": false,
-        "target": "/etc/systemd/system/docker-compose@.service"
-      },
-      {
-        "group": {
-          "id": 0
-        },
-        "path": "/etc/systemd/system/multi-user.target.wants/docker-compose@zigbee2mqtt.service",
-        "user": {
-          "id": 0
-        },
-        "hard": false,
-        "target": "/etc/systemd/system/docker-compose@.service"
+        "enabled": true,
+        "name": "docker-compose@zigbee2mqtt.service"
       }
     ]
   }
