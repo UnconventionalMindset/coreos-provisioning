@@ -3,16 +3,7 @@
     "config": {
       "merge": [
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-download.ign"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-apps.ign"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign"
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/network.ign"
@@ -21,16 +12,28 @@
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign"
         },
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-apps.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-system-systemd-links.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-user-systemd-links.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-composes-download.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/portainer.ign"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign"
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign"
         },
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign"
         },
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign"
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign"
         }
       ]
     },
