@@ -12,6 +12,9 @@
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign"
         },
         {
+          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign"
+        },
+        {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-system-systemd-links.ign"
         },
         {
@@ -28,9 +31,6 @@
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign"
         },
         {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign"
