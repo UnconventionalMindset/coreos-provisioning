@@ -45,6 +45,8 @@ storage:
           
 systemd:
   units:
+    - name: ignition-delete-config.service
+      mask: true
     - name: serial-getty@ttyS0.service
       dropins:
       - name: autologin-core.conf
