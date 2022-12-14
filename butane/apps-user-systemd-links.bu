@@ -37,9 +37,3 @@ storage:
         id: 1000
       target: /home/core/.config/containers/compose/docker-compose@.service
       hard: false
-    
-
-systemd:
-  units:
-    # Rootful containers
-        

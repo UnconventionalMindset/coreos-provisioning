@@ -2,17 +2,30 @@ variant: fcos
 version: 1.4.0
 ignition:
   config:
+    # Unfortunately order matters, waiting for a better implementation in: https://github.com/coreos/butane/issues/118
     merge:
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-download.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-apps.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/network.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-apps.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign
+      # Users and Groups first
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/users-groups.ign
+      # Network
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/network.ign
+      # Mount NFS - TODO: replace with Docker volumes
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign
+      # Systemd system apps files
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-system-systemd-links.ign
+      # Systemd user apps files
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-user-systemd-links.ign
+      # Downloads Docker/Podman apps compose file
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-composes-download.ign
+      # Portainer
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/portainer.ign
+      # Docker Compose Systemd service
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign
+      # Podman Compose Systemd service
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/podman-setup.ign
+      # Install system apps using Systemd services that runs RPM-OSTree installation
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign
+      # Scripts
+      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/scripts.ign
 
 storage:
   files:
