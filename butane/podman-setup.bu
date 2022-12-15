@@ -48,7 +48,7 @@ storage:
           [Unit]
           Description=%i rootless pod (podman-compose)
           After=wait-for-podman-compose.service
-          Wants=wait-for-podman-compose.service
+          Requires=wait-for-podman-compose.service
           
           [Service]
           Environment=PODMAN_USERNS=keep-id
