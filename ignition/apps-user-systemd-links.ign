@@ -80,6 +80,28 @@
         "group": {
           "id": 1000
         },
+        "path": "/var/home/core/.config/systemd/user/sockets.target.wants/podman.socket",
+        "user": {
+          "id": 1000
+        },
+        "hard": false,
+        "target": "/usr/lib/systemd/user/podman.socket"
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/home/core/.config/systemd/user/default.target.wants/podman-compose@portainer.service",
+        "user": {
+          "id": 1000
+        },
+        "hard": false,
+        "target": "/home/core/.config/systemd/user/podman-compose@.service"
+      },
+      {
+        "group": {
+          "id": 1000
+        },
         "path": "/home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service",
         "user": {
           "id": 1000
