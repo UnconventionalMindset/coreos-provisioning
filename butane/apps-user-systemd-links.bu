@@ -49,6 +49,7 @@ storage:
 
     # Podman Socket
     - path: /var/home/core/.config/systemd/user/sockets.target.wants/podman.socket
+      user:
         id: 1000
       group:
         id: 1000
