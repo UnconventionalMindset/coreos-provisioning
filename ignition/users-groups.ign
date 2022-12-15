@@ -13,8 +13,7 @@
       {
         "groups": [
           "docker",
-          "1000",
-          "18"
+          "1000"
         ],
         "name": "core",
         "sshAuthorizedKeys": [
