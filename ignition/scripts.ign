@@ -8,7 +8,7 @@
         "path": "/usr/local/bin/zigbee-permissions.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/4SRP0/DMBDFd3+Ko0XqUCyHNRKVWsTGgKi6VaDEviQWiS862yn99shpEP0zMHjwe3c/vWfP71RpnSoL34ii7/1nRa1BflJDwaqhDpUmRpUsMYf186vw0RB4DFWhW5CSUUf2dkCQsiNjqyPshcGqiG3Io0fOH7Msy/nw/fCr1kyxv5UpNMh5LqWEvbg/CyPEHKYhSESoKJ3R0g0dHMh3SDi42NJNRyZZcekvnT/cGOWSV3P/D6++5flg9dcRShtAQs84oAtgsMVgyUHF1IEjJ+ngzkHLANc935A7670l58dYu+0GDA5W41R1zKUMDiqE4267ydLW2hgP6aNO7xNoKmZs0VIMombsQb7A4mNS8gWo6Fm1tlSn0dUKFAZ9ugnUDcEsEWdXzk8AAAD//zqoWykxAgAA"
+          "source": "data:;base64,H4sIAAAAAAAC/4SRMW/6MBDFd3+K+8N/o5bDVlkqEnTtUBWxIVXBvhCriS86XwJ8+8ppqkIZOnjwvXc/vWfP/5lDiOZQplqVXZfeK2o88pMZSjY1tWgcMZosqTmsn19U6j1BQqlK14DWjK7nFAYErVvyobrAXnmsyr4R2ydkuyyKwvLp/PA9PTL13f2YpEa2VmsNe/X/KoxSc5hMkIlQUT6j5Go6RdBvkHFws+XqlnyW+kW6VX5wY5Rb3pG7P3jHe16S4D4ucAgCGjrGAaOAxwYlUISKqYVIUdMpXoMWAr97viK3IaVAMY2xdtsNeByCw6nqmMt4HIzIZbfdFHlr7X2C/FFf7yM0FfOhbKgXha4mmE03e7bLR5vdM1itwKA4M9rVZwAAAP//v0DT7w0CAAA="
         },
         "mode": 493
       }
