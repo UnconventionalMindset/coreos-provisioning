@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  portainer:
+    image: docker.io/portainer/portainer-ce
+    container_name: portainer
+    command: "--templates https://raw.githubusercontent.com/UnconventionalMindset/portainer/main/template.json --admin-password-file /data/.secrets/portainer_pass"
+    volumes:
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock:Z
+      - /mnt/shared/apps/docker/portainer:/data
+    ports:
+      - 9000:9000
+      - 9443:9443
+    restart: 'always'
+    security_opt:
+      - label:disable

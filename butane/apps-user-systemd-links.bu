@@ -47,6 +47,23 @@ storage:
   links:
     # Rootless containers
 
+    # Podman Socket
+    - path: /var/home/core/.config/systemd/user/sockets.target.wants/podman.socket
+        id: 1000
+      group:
+        id: 1000
+      target: /usr/lib/systemd/user/podman.socket
+      hard: false
+
+    # Portainer
+    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@portainer.service
+      user:
+        id: 1000
+      group:
+        id: 1000
+      target: /home/core/.config/systemd/user/podman-compose@.service
+      hard: false
+
     # Jellyfin
     - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service
       user:
