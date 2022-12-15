@@ -14,21 +14,22 @@ storage:
           cd /var/home/core/coreos-provisioning
           git sparse-checkout set apps
           git checkout
-          for entry in $podman_rootless
+          for entry in ${podman_rootless[@]}
           do
             mkdir -p /var/home/core/.config/containers/compose/$entry/
-            sudo mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /var/home/core/.config/containers/compose/$entry/
+            mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /var/home/core/.config/containers/compose/$entry/
           done
 
-          for entry in $podman_rootful
+          for entry in ${podman_rootful[@]}
           do
             mkdir -p /etc/container/compose/$entry/
-            sudo mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /etc/containers/compose/$entry/
+            mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /etc/containers/compose/$entry/
           done
 
-          for entry in $docker
+          for entry in ${docker[@]}
           do
-          mkdir -p /etc/docker/compose/$entry/
+            echo $entry
+            sudo mkdir -p /etc/docker/compose/$entry/
             sudo mv /var/home/core/coreos-provisioning/apps/$entry/docker-compose.yml /etc/docker/compose/$entry/
           done
 
