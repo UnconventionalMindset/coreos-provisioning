@@ -24,9 +24,6 @@
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-composes-download.ign"
         },
         {
-          "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/portainer.ign"
-        },
-        {
           "source": "https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign"
         },
         {
