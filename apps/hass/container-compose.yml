@@ -1,7 +1,8 @@
-version: '3'
+---
+version: "3"
 services:
   homeassistant:
-    image: docker.io/homeassistant/home-assistant:latest
+    image: lscr.io/linuxserver/homeassistant:latest
     container_name: hass
     network_mode: host
     environment:
@@ -9,8 +10,8 @@ services:
       - PGID=1000
       - TZ=Europe/Zurich
     volumes:
-      - /var/mnt/shared/apps/docker/homeassistant/config:/config
+      - /var/mnt/shared/apps/docker/homeassistant/config:/config:Z
+      - /etc/localtime:/etc/localtime:ro
     # ports:
     #   - 8123:8123
     restart: unless-stopped
-    privileged: true

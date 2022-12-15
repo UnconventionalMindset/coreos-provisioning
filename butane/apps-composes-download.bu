@@ -7,9 +7,9 @@ storage:
       contents:
         inline: |
           #!/bin/bash
-          podman_rootless=(portainer jellyfin)
+          podman_rootless=(portainer hass jellyfin)
           podman_rootful=()
-          docker=(hass mosquitto zigbee2mqtt)
+          docker=(mosquitto zigbee2mqtt)
           git clone --filter=blob:none --branch main --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-provisioning.git /var/home/core/coreos-provisioning
           cd /var/home/core/coreos-provisioning
           git sparse-checkout set apps
