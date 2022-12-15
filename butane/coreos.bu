@@ -18,8 +18,6 @@ ignition:
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-user-systemd-links.ign
       # Downloads Docker/Podman apps compose file
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-composes-download.ign
-      # Portainer
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/portainer.ign
       # Docker Compose Systemd service
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/docker-setup.ign
       # Podman Compose Systemd service
