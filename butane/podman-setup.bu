@@ -34,7 +34,7 @@ storage:
           [Service]
           Type=oneshot
           ExecStart=/bin/bash -c 'while ! which podman-compose; do sleep 1; done'
-          TimeoutStartSec=10s
+          TimeoutStartSec=600s
       user:
         id: 1000
       group:
