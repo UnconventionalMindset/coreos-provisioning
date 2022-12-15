@@ -5,13 +5,19 @@
   "storage": {
     "files": [
       {
+        "group": {
+          "id": 1000
+        },
         "overwrite": true,
         "path": "/etc/systemd/system/podman-compose@.service",
+        "user": {
+          "id": 1000
+        },
         "contents": {
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/8yRO25jMQxFe61CjYGZgn4reMUM7GLacQIXhgtFom3CEimQfP7sPog/RQKkT6fiXJH3cPPK5NuwQMtK3Ul4nFFUEd9NNXYp8VeX0hJDltbF8Hf4s3PUkdHPokcQrsQ496R79HhKCo0d7JAUy7zJxB6r5FRhZ09IewMxV0QgNk+1QpF8RH3OmBvqiTLGImeukgqk3u0LZE8qrBO7/aSFwmZ1f23Dy7XjKIx2EA//sSXim7/lhXx0nTCsRY/E+wUpZhe9jgN6HrKwJ2JUGx7fDzMKywvmlSf1cZhMhzfi4fN14tQjlAig2OSEINoPie0RlP5t7qNYCJt/9/rbm1Msf69jm6oTTIb6sBXeAwAA//+UOqRKMwIAAA=="
         },
-        "mode": 420
+        "mode": 504
       },
       {
         "group": {
@@ -26,7 +32,7 @@
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/1zNMU4DQQxG4X5OYapUUUJDg7aDE+xSRSm83l8aSzP2aO0kcHsEZbpXve/yZZrX8oGQXUeq27TsiqB0ai6coOFbZzuK9+EBEu+dbaObpTbSpBXiHUF8Z228NpRymbHfVXAty8/A5IaonuXzGzIn7zmdVrXTylHpKHR4VG2gF3pUlfrkvdPmFA0Y9PrXhkNZtMNv+b+aIdPb+RzlNwAA//+K3ZhnygAAAA=="
         },
-        "mode": 420
+        "mode": 504
       },
       {
         "group": {
@@ -41,7 +47,7 @@
           "compression": "gzip",
           "source": "data:;base64,H4sIAAAAAAAC/4TOv24iQQzH8d5PsQ3SXTHME0zBiS2uCInYIAqEosmMFyx27YnHy5+3j5TQUETpLPn3lT67DZPtYYk1KRUj4TCjRkVswFqbIrn5UySPkV2SsUjFv7DoDTVcIpnrRd3je15Rz5QQ1vgxkWL9dQi77vvaQ8tnUuER2cLL8/JpsXrbdO161YUTYnGU4fVWMAhjPYrBGsdI/MVpr2TBdELYip6ID0tSTCZ6C7Ojnyfhng4+CVskRq3+rvAzgvaKqbOoFvxU1b8T+0dqM5XG5cY5xVHO6ETLMXK9h1J+7LJcGGD3n6vFYdjDNrJh/ncLGfs4DTa3qAc0+AwAAP//MkXe8YYBAAA="
         },
-        "mode": 420
+        "mode": 504
       },
       {
         "path": "/var/lib/systemd/linger/core",
