@@ -7,6 +7,22 @@ storage:
       contents:
         inline: |
           #!/bin/bash
+          apps_folder=/var/home/core/apps
+          # ACL
+          sudo setfacl --recursive --modify \
+          default:user:core:rwx,default:group:homeuser:rwx,default:other::--- \
+          $apps_folder
+          
+          # default user for folder
+          chown -R 1000 $apps_folder
+          chmod -R u+s $apps_folder
+          # default group for folder
+          chgrp -R 1000 $apps_folder
+          chmod -R g+s $apps_folder
+          # sticky bit - prevent deletion from non-owner
+          chmod -R +t $apps_folder
+
+          # Permissions for USB device
           chown 1000 /dev/ttyUSB0
           
 systemd:
