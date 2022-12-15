@@ -9,7 +9,22 @@
         "path": "/etc/systemd/system/podman-compose@.service",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/7SQv27qMQyF9zxFFqR7h/B7ggytYOhaWjEghjQxYJHYke3w5+2rUhg6dOzmweccfd/mndC2bgGaBbshU5yhF2bbjeo7F/+vc2mJQubWWeG/e9oZSCSwM8sxMFUkmFuSPZg/JQmNLOghCZR540HmK+dUw04fT4XPVDmVkHrXUDgfQR71OleQE2Zw60Smfz/jNqvva+verh0iE+iBzb1CS0g31uUFLZoMcGuWI9J+gQLZWK5xAstTZrKEBKLTvX6aoVteIK8sicVpqEwfSNNPk350H4oPQaDxCQJLPyTSe5D7r7kvMOc2L6SWat3eTEF5vsY2qmEYCnJ34D4DAAD//0jLsCzfAQAA"
+          "source": "data:;base64,H4sIAAAAAAAC/8yRO25jMQxFe61CjYGZgn4reMUM7GLacQIXhgtFom3CEimQfP7sPog/RQKkT6fiXJH3cPPK5NuwQMtK3Ul4nFFUEd9NNXYp8VeX0hJDltbF8Hf4s3PUkdHPokcQrsQ496R79HhKCo0d7JAUy7zJxB6r5FRhZ09IewMxV0QgNk+1QpF8RH3OmBvqiTLGImeukgqk3u0LZE8qrBO7/aSFwmZ1f23Dy7XjKIx2EA//sSXim7/lhXx0nTCsRY/E+wUpZhe9jgN6HrKwJ2JUGx7fDzMKywvmlSf1cZhMhzfi4fN14tQjlAig2OSEINoPie0RlP5t7qNYCJt/9/rbm1Msf69jm6oTTIb6sBXeAwAA//+UOqRKMwIAAA=="
+        },
+        "mode": 420
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "overwrite": true,
+        "path": "/var/home/core/.config/systemd/user/wait-for-podman-compose.service",
+        "user": {
+          "id": 1000
+        },
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/1zNsU7DQAyH8f2ewkydqtIZZYMnSJiqDo7zl87SnX2K3QbeHsHI9k3f7/ZpmvfyjpBdR6rbtOyKoHRqLpyg4VtnO4v34QES751to4elNtKkFeIdQfxkbbw2lHKbsT9VcC/L98Dkhqie5eMLMifvOV1WtcvKUeksdDqqNtALHVWl/vPeaHOKBgy6/rbhVBbt8Ef+rWbIdH2N8hMAAP//UNunJckAAAA="
         },
         "mode": 420
       },
@@ -24,7 +39,7 @@
         },
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/7TQsQ7TMBAG4N1P4aUSDE6ewENRMzBQUEPVoaqQsS/NKc6ddb6k7dsjSjswMLLdcP/dr+98JNSL2UGNgkWRyW/QCrNmqNUWTvZD4TQHcpHnwhU+mu2gIJ5AbyyTY8pI0GiQK6hdg7iZ1NUxCKRm5oXUZo4hu6G+lxLfKHNILpRSXeI4gbzP16aCrBjBnAJp/f9vzLn/M11MRysK0wyk/tvX3Zft/sex7w773k8AxWEy3x8FPBPUkdUcYA5IT43ujupVFjAnlgnpukOBqCwPvxnbJjINeG0jkwYkkNq+arQbNN0dYq9B1LdLlfYnUvu3uF2Kdck6JzDzCo6ljIHqK8jln7nfAMacP1PVkPPlKQrp08MnGMKS9QVlfgUAAP//FpXOFQUCAAA="
+          "source": "data:;base64,H4sIAAAAAAAC/4SQsW4CMRBEe3+FG6SkMP4CF0RckSIk4oIoEIocew9W3O1a6z3g/j4SoaGI0o0086Sn2W0IdW+WUJNgUWQKM7TCrD3Uagtn+1Q4D5Fc4qFwhWez6BQkXCKq61jcYz2vIGdMYLaRtP67Mrv2N+1NQ2cUpgFIw8f78m2x+tq0zXrVhhNAcZjN51QgMEE9spo1DBHp5tJcUYPKCGbLckI6LFEgKcsUZkc/T0wdHnxi0ogEUv3dws/QNFdIrUbR4Mcq/hvJP6rasViXrXMCA5/BsZRjpHoHufzJZb6QMbtXqhr7fn87BPLLFDJ0cex1rlEOoOYnAAD//9z6dTCDAQAA"
         },
         "mode": 420
       },
