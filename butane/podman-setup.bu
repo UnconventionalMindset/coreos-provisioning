@@ -5,7 +5,11 @@ storage:
     # Systemd Podman-Compose rootful Service
     - path: /etc/systemd/system/podman-compose@.service
       overwrite: true
-      mode: 0644
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
       contents:
         inline: |
           [Unit]
@@ -25,7 +29,11 @@ storage:
     # Systemd Wait for Podman-Compose to be installed rootless Service
     - path: /var/home/core/.config/systemd/user/wait-for-podman-compose.service
       overwrite: true
-      mode: 0644
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
       contents:
         inline: |
           [Unit]
@@ -35,14 +43,14 @@ storage:
           Type=oneshot
           ExecStart=/bin/bash -c 'while ! which podman-compose; do sleep 1; done'
           TimeoutStartSec=600s
+    # Systemd Podman-Compose rootless Service
+    - path: /var/home/core/.config/systemd/user/podman-compose@.service
+      overwrite: true
+      mode: 0770
       user:
         id: 1000
       group:
         id: 1000
-    # Systemd Podman-Compose rootless Service
-    - path: /var/home/core/.config/systemd/user/podman-compose@.service
-      overwrite: true
-      mode: 0644
       contents:
         inline: |
           [Unit]
@@ -60,9 +68,5 @@ storage:
           
           [Install]
           WantedBy=default.target
-      user:
-        id: 1000
-      group:
-        id: 1000
     - path: /var/lib/systemd/linger/core
       mode: 0644

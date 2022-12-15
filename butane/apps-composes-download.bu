@@ -28,11 +28,13 @@ storage:
 
           for entry in ${docker[@]}
           do
-            echo $entry
-            sudo mkdir -p /etc/docker/compose/$entry/
-            sudo mv /var/home/core/coreos-provisioning/apps/$entry/docker-compose.yml /etc/docker/compose/$entry/
+            mkdir -p /etc/docker/compose/$entry/
+            mv /var/home/core/coreos-provisioning/apps/$entry/docker-compose.yml /etc/docker/compose/$entry/
           done
 
+          chown -R 1000 /var/home/core/.config
+          chgrp -R 1000 /var/home/core/.config
+          chmod -R 770 /var/home/core/.config
           rm -rf /var/home/core/coreos-provisioning
 
 systemd:
