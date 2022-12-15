@@ -10,7 +10,7 @@ storage:
           apps_folder=/var/home/core/apps
           # ACL
           sudo setfacl --recursive --modify \
-          default:user:core:rwx,default:group:homeuser:rwx,default:other::--- \
+          default:user:1000:rwx,default:group:1000:rwx,default:other::--- \
           $apps_folder
           
           # default user for folder
@@ -24,6 +24,10 @@ storage:
 
           # Permissions for USB device
           chown 1000 /dev/ttyUSB0
+
+          # Adds core user to group dialout
+          grep -E '^dialout:' /usr/lib/group >> /etc/group
+          echo "core" >> /etc/group
           
 systemd:
   units:
