@@ -26,8 +26,7 @@ storage:
           chown 1000 /dev/ttyUSB0
 
           # Adds core user to group dialout
-          grep -E '^dialout:' /usr/lib/group >> /etc/group
-          echo "core" >> /etc/group
+          echo "dialout:x:18:core" >> /etc/group
           
 systemd:
   units:
