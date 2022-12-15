@@ -22,7 +22,7 @@ systemd:
         After=network-online.target
         # We run before `zincati.service` to avoid conflicting rpm-ostree
         # transactions.
-        Before=zincati.service rpm-ostree-install-docker-compose.service
+        Before=zincati.service rpm-ostree-install-podman-compose.service
         ConditionPathExists=!/var/lib/%N.stamp
 
         [Service]
@@ -47,7 +47,7 @@ systemd:
         After=network-online.target
         # We run before `zincati.service` to avoid conflicting rpm-ostree
         # transactions.
-        Before=zincati.service
+        Before=zincati.service rpm-ostree-install-docker-compose.service
         ConditionPathExists=!/var/lib/%N.stamp
 
         [Service]
