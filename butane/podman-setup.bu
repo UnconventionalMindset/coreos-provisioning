@@ -10,8 +10,8 @@ storage:
         inline: |
           [Unit]
           Description=%i rootful pod (podman-compose)
-          After=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
-          Wants=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
+          After=network-online.target var-mnt-shared.mount local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+          Wants=network-online.target var-mnt-shared.mount local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
           
           [Service]
           Type=oneshot
@@ -22,6 +22,23 @@ storage:
           
           [Install]
           WantedBy=multi-user.target
+    # Systemd Wait for Podman-Compose to be installed rootless Service
+    - path: /var/home/core/.config/systemd/user/wait-for-podman-compose.service
+      overwrite: true
+      mode: 0644
+      contents:
+        inline: |
+          [Unit]
+          Description=Tries to locate podman-compose command until it becomes available
+
+          [Service]
+          Type=oneshot
+          ExecStart=/bin/bash -c 'while ! which podman-compose; do sleep 1; done'
+          TimeoutStartSec=10s
+      user:
+        id: 1000
+      group:
+        id: 1000
     # Systemd Podman-Compose rootless Service
     - path: /var/home/core/.config/systemd/user/podman-compose@.service
       overwrite: true
@@ -30,8 +47,8 @@ storage:
         inline: |
           [Unit]
           Description=%i rootless pod (podman-compose)
-          After=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
-          Wants=network-online.target var-mnt-shared.mount local-fs.target download-apps-docker-composes.service
+          After=wait-for-podman-compose.service
+          Wants=wait-for-podman-compose.service
           
           [Service]
           Environment=PODMAN_USERNS=keep-id
