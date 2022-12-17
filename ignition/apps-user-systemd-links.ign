@@ -18,7 +18,7 @@
         "group": {
           "id": 1000
         },
-        "path": "/var/home/core/apps/jellyfin",
+        "path": "/var/home/core/apps/docker",
         "user": {
           "id": 1000
         },
@@ -28,7 +28,77 @@
         "group": {
           "id": 1000
         },
-        "path": "/var/home/core/apps/jellyfin/cache",
+        "path": "/var/home/core/apps/docker/jellyfin",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/jellyfin/cache",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/qbittorrent",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/qbittorrent/downloads",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/radarr",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/radarr/downloads",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/sonarr",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/sonarr/downloads",
         "user": {
           "id": 1000
         },
