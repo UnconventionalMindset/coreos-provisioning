@@ -1,0 +1,15 @@
+services:
+  mosquitto:
+    container_name: mosquitto
+    image: docker.io/eclipse-mosquitto:latest
+    volumes:
+      - /var/mnt/shared/apps/docker/mosquitto/config/:/mosquitto/config/
+      - /var/mnt/shared/apps/docker/mosquitto/log/:/mosquitto/log/
+      - /var/mnt/shared/apps/docker/mosquitto/data/:/mosquitto/data/
+    user: 1000:1000
+    ports:
+      - 1883:1883
+      - 9002:9001
+
+volumes:
+  data: ~

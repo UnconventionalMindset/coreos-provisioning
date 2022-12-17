@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   # Needs to be run like: PODMAN_USERNS=keep-id podman-compose up
-  # Until this is solved: https://github.com/containers/podman-compose/issues/307
+  # Until this is solved: https://github.com/containers/podman-compose/issues/166
   jellyfin:
     image: docker.io/jellyfin/jellyfin
     container_name: jellyfin

@@ -1,10 +1,16 @@
 ---
 version: "3"
+
+networks:
+  hass:
+    name: hass
+    driver: host
+
 services:
   homeassistant:
     image: lscr.io/linuxserver/homeassistant:latest
     container_name: hass
-    # network_mode: host
+    networks: hass
     environment:
       - PUID=1000
       - PGID=1000

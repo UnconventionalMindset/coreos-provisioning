@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: docker.io/koenkk/zigbee2mqtt:latest
+    restart: unless-stopped
+    user: 1000:1000
+    depends_on:
+      - mosquitto
+    volumes:
+      - /var/mnt/shared/apps/docker/z2mqtt/config:/app/data
+      - /run/udev:/run/udev:ro
+    ports:
+      # Frontend port
+      - 8080:8080
+    devices:
+      - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_22fe32bb2286ec118b52631719c2d21c-if00-port0:/dev/ttyUSB0
