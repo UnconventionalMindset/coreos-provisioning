@@ -65,6 +65,33 @@ storage:
       target: /home/core/.config/systemd/user/podman-compose@.service
       hard: false
 
+    # Mosquitto
+    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@mosquitto.service
+      user:
+        id: 1000
+      group:
+        id: 1000
+      target: /home/core/.config/systemd/user/podman-compose@.service
+      hard: false
+
+    # Zigbee2MQTT
+    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@zigbee2mqtt.service
+      user:
+        id: 1000
+      group:
+        id: 1000
+      target: /home/core/.config/systemd/user/podman-compose@.service
+      hard: false
+
+    # Home Assistant
+    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@hass.service
+      user:
+        id: 1000
+      group:
+        id: 1000
+      target: /home/core/.config/systemd/user/podman-compose@.service
+      hard: false
+
     # Jellyfin
     - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service
       user:

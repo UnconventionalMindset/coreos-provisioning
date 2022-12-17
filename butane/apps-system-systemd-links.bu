@@ -2,12 +2,3 @@ variant: fcos
 version: 1.4.0
 systemd:
   units:
-    # Home Assistant
-    - name: docker-compose@hass.service
-      enabled: true
-    # Mosquitto
-    - name: docker-compose@mosquitto.service
-      enabled: true
-    # Zigbee2MQTT
-    - name: docker-compose@zigbee2mqtt.service
-      enabled: true
