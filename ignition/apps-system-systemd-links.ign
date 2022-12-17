@@ -1,21 +1,5 @@
 {
   "ignition": {
     "version": "3.3.0"
-  },
-  "systemd": {
-    "units": [
-      {
-        "enabled": true,
-        "name": "docker-compose@hass.service"
-      },
-      {
-        "enabled": true,
-        "name": "docker-compose@mosquitto.service"
-      },
-      {
-        "enabled": true,
-        "name": "docker-compose@zigbee2mqtt.service"
-      }
-    ]
   }
 }
