@@ -8,7 +8,7 @@ networks:
 
 services:
   homeassistant:
-    image: lscr.io/linuxserver/homeassistant:latest
+    image: docker.io/homeassistant/home-assistant:latest
     container_name: hass
     networks: hass
     environment:

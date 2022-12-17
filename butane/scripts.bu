@@ -24,6 +24,8 @@ storage:
 
           # Permissions for USB device
           chown 1000 /dev/ttyUSB0
+          # SELinux policy to allow containers to use any device volume mounted into container
+          setsebool container_use_devices=true
 
           # Adds core user to group dialout
           echo "dialout:x:18:core" >> /etc/group
