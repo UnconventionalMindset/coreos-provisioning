@@ -9,7 +9,7 @@
         "path": "/var/home/core/download-apps-docker-composes.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/7STQY/TMBCF7/kVg9hDe3Dd5bLSSpX4A1yQOCGEHHsSD7VnvPakqCD+O8pmYWFpoUJwnbx573uZ5Pkz2xPb3rXYFQnZ8fsqoglb262KVHXEWCG61uADpnQciNc/Kocp7VbrLojfY92tsrS7iVQFPtHYI77Id6rrbiQFn4QRjBkoKdZdn6S/5WXUV8c+QnbEYAyL8RH9XiYFYwIWjXANxrTiakOIqqXdWjuSxqnfeMn2DXvhA7KSsEuviENDtV4qSjOlyoEaCROPmxnEHly1UTLeK07JOh8uUc1mC9QjcEMFV0pbKj9Mu0EqIGs9AjFcfX7ypt++fPelC9IB5H2gCqY8Td944YFG64WXizTrJRdpaK/ufe28fLgA2s5w35a+25kHt80xp7/IDsLY/abkMKVTHVH9o+v/LPRT0IX4yxd9Dnt5+k+YF6tfgc9ELLA+ykcG8xqut9vtmYt1Po61/FmUJcyim5uzmprB1OGSX+JrAAAA//8bJq82UAQAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/7STQW/UMBCF7/kVg+ihPXi95VKp0kr8AS5InBBCjj2Jh7VnXHuyaEH8d5SmUCi7ECG4Rc6b976XiZ8/sz2x7V2LXZGQHb+vIpqwtd1lkaqOGCtkaXcTqQp8orFHfJHvVCG61uADpnQciK9+nB+mtLu86oL4Pdb5aSQFn4QRjBkoKdZdn6S/5eWor459hOyIwRgW4yP6vUwKxgQsGuEajGnF1YYQVUu7tXYkjVO/8ZLtG/bCB2QlYZdeEYeGar1UlGZKlQM1EiYeNzOIPbhqo2S8V5ySdT6sUc1mC9QjcEMFV0pbKj+cdoNUQNZ6BGK4+PzkU799+e5LF6QDyPtAFUx5mr7xwgON1gsvK2nWSy7S0F7c+9p5+LAC2s5w34a+25kHt80xp7/IDsLY/abkMKVTHVH9o+v/LPRT0Er85ec9h728/SfMi9WvwGciFlgf5SODeQ3X2+32zMY6H8da/izKEmbRzc1ZTc1g6rDmSnwNAAD//7UPYqhRBAAA"
         }
       }
     ]
