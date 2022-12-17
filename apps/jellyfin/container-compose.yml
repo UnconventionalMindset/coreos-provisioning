@@ -10,7 +10,7 @@ services:
       - /var/mnt/shared/apps/docker/jellyfin/config:/config
       - /var/mnt/shared/apps/files/series:/data/tvshows
       - /var/mnt/shared/apps/files/films:/data/movies
-      - /var/home/core/apps/jellyfin/cache:/cache
+      - /var/home/core/apps/docker/jellyfin/cache:/cache
     environment:
       - JELLYFIN_PublishedServerUrl=192.168.31.200
     ports:

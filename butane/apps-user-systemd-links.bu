@@ -8,18 +8,65 @@ storage:
         id: 1000
       group:
         id: 1000
-    - path: /var/home/core/apps/jellyfin
+    - path: /var/home/core/apps/docker
       mode: 0770
       user:
         id: 1000
       group:
         id: 1000
-    - path: /var/home/core/apps/jellyfin/cache
+    # Jellyfin
+    - path: /var/home/core/apps/docker/jellyfin
       mode: 0770
       user:
         id: 1000
       group:
         id: 1000
+    - path: /var/home/core/apps/docker/jellyfin/cache
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    # Qbittorrent
+    - path: /var/home/core/apps/docker/qbittorrent
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/qbittorrent/downloads
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    # Radarr
+    - path: /var/home/core/apps/docker/radarr
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/radarr/downloads
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    # Sonarr
+    - path: /var/home/core/apps/docker/sonarr
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/sonarr/downloads
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+
     - path: /home/core/.config
       mode: 0770
       user:

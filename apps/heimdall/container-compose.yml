@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  heimdall:
+    image: docker.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Zurich
+    volumes:
+      - /var/mnt/shared/apps/docker/heimdall/config:/config
+    ports:
+      - 443:443
+      - 80:80
+    restart: 'unless-stopped'

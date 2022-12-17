@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  prowlarr:
+    image: docker.io/hotio/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=007
+      - TZ=Europe/Zurich
+    volumes:
+      - /mnt/shared/apps/docker/prowlarr/config:/config
+    ports:
+      - 9696:9696
+    restart: 'unless-stopped'
