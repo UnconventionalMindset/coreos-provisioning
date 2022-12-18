@@ -2,7 +2,16 @@ variant: fcos
 version: 1.4.0
 storage:
   files:
-    - path: /usr/local/bin/zigbee-permissions.sh
+    - path: /usr/local/bin/zigbee-permissions-selinux-policy.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          # Permissions for USB device
+          chown 1000 /dev/ttyUSB0
+          # SELinux policy to allow containers to use any device volume mounted into container
+          setsebool container_use_devices=true
+    - path: /usr/local/bin/acl-permissions-sticky-bit.sh
       mode: 0755
       contents:
         inline: |
@@ -22,26 +31,31 @@ storage:
           # sticky bit - prevent deletion from non-owner
           chmod -R +t $apps_folder
 
-          # Permissions for USB device
-          chown 1000 /dev/ttyUSB0
-          # SELinux policy to allow containers to use any device volume mounted into container
-          setsebool container_use_devices=true
-
           # Adds core user to group dialout
           echo "dialout:x:18:core" >> /etc/group
           
 systemd:
   units:
-    - name: zigbee-permissions.service
+    - name: zigbee-permissions-selinux-policy.service
+      enabled: true
+      contents: |
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/local/bin/zigbee-permissions-selinux-policy.sh
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
+    - name: folder-permissions.service
       enabled: true
       contents: |
         [Unit]
-        ConditionPathExists=!/var/lib/zigbee-permissions
+        ConditionPathExists=!/var/lib/acl-permissions-sticky-bit
 
         [Service]
         Type=oneshot
-        ExecStart=/usr/local/bin/zigbee-permissions.sh
-        ExecStartPost=/usr/bin/touch /var/lib/zigbee-permissions
+        ExecStart=/usr/local/bin/acl-permissions-sticky-bit.sh
+        ExecStartPost=/usr/bin/touch /var/lib/acl-permissions-sticky-bit
         RemainAfterExit=yes
 
         [Install]
