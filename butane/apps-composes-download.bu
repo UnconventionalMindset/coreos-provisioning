@@ -22,7 +22,7 @@ storage:
 
           for entry in ${podman_rootful[@]}
           do
-            mkdir -p /etc/container/compose/$entry/
+            mkdir -p /etc/containers/compose/$entry/
             mv /var/home/core/coreos-provisioning/apps/$entry/container-compose.yml /etc/containers/compose/$entry/
           done
 
