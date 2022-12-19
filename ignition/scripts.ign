@@ -5,10 +5,18 @@
   "storage": {
     "files": [
       {
-        "path": "/usr/local/bin/zigbee-permissions.sh",
+        "path": "/usr/local/bin/zigbee-permissions-selinux-policy.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/4SSMW/bMBCFd/6Ka9wtJehsBYEESIpuGYoa2QIYNHmyiFI8gXeUrX9fUFHhuBkyaNB79z68I7n5Yg4xm4PjXrlx5H1HKWC5N5MrpqcBjaeCpllqA48/nhXXQMAonfMJtC7oa+E4IWg9UIjdDK8qYOdqElsZi73bbre2nM7f/qnHQnX8KJP0WKzVWsOr+vqujFIbWIegEaGj9i2W7+mUQf+GhoOrlO8HCs2qt3ztXHBLlWvesYyf8I4feSzR/5nhEAU0jAUnzAIBE0qkDF2hATJlTaf8HnQr8P+ev7AMkTlS5qXWy+4JAk7R47rq0ssEnIzI/LJ72qoN7H4+x1zPMFKKfgYhcCnRCTxlcTFj4aZVRnB5XnEwUaoDwkA1CwaIWegSUIzCeCBKF21fGfdvYb6XUrH1fQyBoT2Rt5sRWo80RJeoikLfE9ysf/Zs777bNn0DDw9gULxZxtXfAAAA//8adFPqhwIAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/0TMQUrFMBCH8X1O8ZceIPEAbh64cyGUrkuajnQgnZHMpLW3F/FBtx/8vuElLixxybaFAZ/UdjZjFcOXNkzjAysdXCiUTU/Ba0oJcaUjul/T+EhhwPj+wdJ/8K2VywVX5Fr1RFHxzELN/lo3QpbrucOhte+EXbs4rWBxvUEwcqNFtd5t7kbzP7Y3b53CbwAAAP//jc7izrsAAAA="
+        },
+        "mode": 493
+      },
+      {
+        "path": "/usr/local/bin/acl-permissions-sticky-bit.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/4SQTU8DIRCG7/yKsfVWCe3NkNik8erJcxNDYSjEXWYzQD/+vWFdY9cePHBgnpcn77B8UIeY1MHkIMww5A9PnUN+USfDKlCPyhKjakgsYff6JnJ1BBmLN7YDKRlt5RxPCFL25KK/wl449KZ2RdeMrDfr9Vrz+fL0Mz0y1eF+TCUgay2lhL14vCkjxBKmEDQjeGpnRDbQOYF8h6aD2SsbenIN1VWek1/dWGXuO/Lwj+9478sl2s8rHGIBCQPjCVMBhx2WSAk8Uw+JkqRzuhWtCvzdc+dchvbl35sWmiq6aDqqRaANBIvppi9686xbegHbLSgsVo1x8RUAAP//Iz1y8dcBAAA="
         },
         "mode": 493
       }
@@ -17,9 +25,14 @@
   "systemd": {
     "units": [
       {
-        "contents": "[Unit]\nConditionPathExists=!/var/lib/zigbee-permissions\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/zigbee-permissions.sh\nExecStartPost=/usr/bin/touch /var/lib/zigbee-permissions\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target",
+        "contents": "[Service]\nType=oneshot\nExecStart=/usr/local/bin/zigbee-permissions-selinux-policy.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
-        "name": "zigbee-permissions.service"
+        "name": "zigbee-permissions-selinux-policy.service"
+      },
+      {
+        "contents": "[Unit]\nConditionPathExists=!/var/lib/acl-permissions-sticky-bit\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/acl-permissions-sticky-bit.sh\nExecStartPost=/usr/bin/touch /var/lib/acl-permissions-sticky-bit\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target",
+        "enabled": true,
+        "name": "folder-permissions.service"
       }
     ]
   }
