@@ -10,6 +10,10 @@
       },
       {
         "enabled": true,
+        "name": "podman-compose@jellyfin.service"
+      },
+      {
+        "enabled": true,
         "name": "podman-compose@heimdall.service"
       },
       {

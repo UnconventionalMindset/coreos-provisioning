@@ -230,17 +230,6 @@
         },
         "hard": false,
         "target": "/home/core/.config/systemd/user/podman-compose@.service"
-      },
-      {
-        "group": {
-          "id": 1000
-        },
-        "path": "/home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service",
-        "user": {
-          "id": 1000
-        },
-        "hard": false,
-        "target": "/home/core/.config/systemd/user/podman-compose@.service"
       }
     ]
   }
