@@ -10,8 +10,8 @@ services:
       - TZ=Europe/Zurich
     volumes:
       - /var/home/core/apps/docker/radarr/config:/config:Z
-      - /var/home/core/apps/docker/radarr/downloads:/downloads:Z
-      - /mnt/shared/apps/files/films:/movies
+      - /var/home/core/apps/files/downloads:/downloads:z
+      - /mnt/shared/apps/files/films:/films
     ports:
       - 7878:7878
     restart: 'unless-stopped'

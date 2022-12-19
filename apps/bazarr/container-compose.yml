@@ -10,8 +10,9 @@ services:
       - TZ=Europe/Zurich
     volumes:
       - /var/home/core/apps/docker/bazarr/config:/config:Z
-      - /mnt/shared/apps/files/films:/movies
-      - /mnt/shared/apps/files/series:/tv
+      - /var/home/core/apps/files/downloads:/downloads:z
+      - /mnt/shared/apps/files/films:/films
+      - /mnt/shared/apps/files/series:/series
     ports:
       - 6767:6767
     restart: 'unless-stopped'

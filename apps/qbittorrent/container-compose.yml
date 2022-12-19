@@ -10,7 +10,8 @@ services:
       - WEBUI_PORT=8085
       - TZ=Europe/Zurich
     volumes:
-      - /var/home/core/apps/docker/qbittorrent/downloads:/downloads:Z
+      - /var/home/core/apps/files/downloads:/downloads:z
+      - /var/home/core/apps/files/incomplete-downloads:/incomplete-downloads:z
       - /mnt/shared/apps/docker/qbittorrent/config:/config
     ports:
       - 6881:6881

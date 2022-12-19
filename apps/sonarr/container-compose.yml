@@ -10,8 +10,8 @@ services:
       - TZ=Europe/Zurich
     volumes:
       - /var/home/core/apps/docker/sonarr/config:/config:Z
-      - /var/home/core/apps/docker/sonarr/downloads:/downloads:Z
-      - /mnt/shared/apps/files/series:/tv
+      - /var/home/core/apps/files/downloads:/downloads:z
+      - /mnt/shared/apps/files/series:/series
     ports:
       - 8989:8989
     restart: 'unless-stopped'

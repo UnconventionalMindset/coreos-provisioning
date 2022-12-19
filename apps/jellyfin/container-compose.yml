@@ -8,8 +8,8 @@ services:
     user: 1000:1000
     volumes:
       - /var/mnt/shared/apps/docker/jellyfin/config:/config
-      - /var/mnt/shared/apps/files/series:/data/tvshows
-      - /var/mnt/shared/apps/files/films:/data/movies
+      - /var/mnt/shared/apps/files/series:/data/series
+      - /var/mnt/shared/apps/files/films:/data/films
       - /var/home/core/apps/docker/jellyfin/cache:/cache
     environment:
       - JELLYFIN_PublishedServerUrl=192.168.31.200
