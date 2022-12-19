@@ -19,11 +19,37 @@
           "source": "data:;base64,H4sIAAAAAAAC/4SQTU8DIRCG7/yKsfVWCe3NkNik8erJcxNDYSjEXWYzQD/+vWFdY9cePHBgnpcn77B8UIeY1MHkIMww5A9PnUN+USfDKlCPyhKjakgsYff6JnJ1BBmLN7YDKRlt5RxPCFL25KK/wl449KZ2RdeMrDfr9Vrz+fL0Mz0y1eF+TCUgay2lhL14vCkjxBKmEDQjeGpnRDbQOYF8h6aD2SsbenIN1VWek1/dWGXuO/Lwj+9478sl2s8rHGIBCQPjCVMBhx2WSAk8Uw+JkqRzuhWtCvzdc+dchvbl35sWmiq6aDqqRaANBIvppi9686xbegHbLSgsVo1x8RUAAP//Iz1y8dcBAAA="
         },
         "mode": 493
+      },
+      {
+        "path": "/usr/local/bin/save-rr-apps.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3zLQarCQBCE4f2coh8vCxWkTiB4Brci0pmZmKDpHmqCouLdJeLaVdXi//7/0A6GVmsfyKOWUjcLalJSqts8hX67zKfVh5LL0Dkl28S7DCbN88v228MrJA8isch61wmuSvQ+ZkRnxtwgeTxnovlwRLduOGElGG1C7ZU5/ehCcsvhHQAA//8q70JCsgAAAA=="
+        },
+        "mode": 493
+      },
+      {
+        "path": "/usr/local/bin/restore-rr-apps.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3zLQarCQBCE4f2coh8vCxWkTiB4Brci0pmZmKDpHmqCouLdJeLaVdXi//7/0A6GVmsfyKOWUjcLalJSqts8hX67zKfVh5LL0Dkl28S7DCbN88v228MrJA8isch61wlGm1B7ZU6YAySP50w0H4vo1g0nrARXJXofM6Iz/0hDcsvhHQAA///XvU8ZsgAAAA=="
+        },
+        "mode": 493
       }
     ]
   },
   "systemd": {
     "units": [
+      {
+        "contents": "[Service]\nType=oneshot\n# Execute at shutdown\nExecStop=/usr/local/bin/save-rr-apps.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "save-rr-apps.service"
+      },
+      {
+        "contents": "[Service]\nType=oneshot\nExecStart=/usr/local/bin/restore-rr-apps.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "restore-rr-apps.service"
+      },
       {
         "contents": "[Service]\nType=oneshot\nExecStart=/usr/local/bin/zigbee-permissions-selinux-policy.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,

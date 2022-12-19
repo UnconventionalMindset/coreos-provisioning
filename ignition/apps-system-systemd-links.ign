@@ -1,5 +1,33 @@
 {
   "ignition": {
     "version": "3.3.0"
+  },
+  "systemd": {
+    "units": [
+      {
+        "enabled": true,
+        "name": "podman-compose@qbittorrent.service"
+      },
+      {
+        "enabled": true,
+        "name": "podman-compose@heimdall.service"
+      },
+      {
+        "enabled": true,
+        "name": "podman-compose@sonarr.service"
+      },
+      {
+        "enabled": true,
+        "name": "podman-compose@radarr.service"
+      },
+      {
+        "enabled": true,
+        "name": "podman-compose@bazarr.service"
+      },
+      {
+        "enabled": true,
+        "name": "podman-compose@prowlarr.service"
+      }
+    ]
   }
 }

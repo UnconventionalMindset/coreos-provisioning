@@ -78,6 +78,16 @@
         "group": {
           "id": 1000
         },
+        "path": "/var/home/core/apps/docker/radarr/config",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
         "path": "/var/home/core/apps/docker/radarr/downloads",
         "user": {
           "id": 1000
@@ -98,7 +108,77 @@
         "group": {
           "id": 1000
         },
+        "path": "/var/home/core/apps/docker/sonarr/config",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
         "path": "/var/home/core/apps/docker/sonarr/downloads",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/prowlarr",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/prowlarr/config",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/prowlarr/downloads",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/bazarr",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/bazarr/config",
+        "user": {
+          "id": 1000
+        },
+        "mode": 504
+      },
+      {
+        "group": {
+          "id": 1000
+        },
+        "path": "/var/home/core/apps/docker/bazarr/downloads",
         "user": {
           "id": 1000
         },
