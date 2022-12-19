@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   qbittorrent:
-    image: docker.io/linuxserver/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
       - PUID=1000

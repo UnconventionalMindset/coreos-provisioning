@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   prowlarr:
-    image: docker.io/linuxserver/prowlarr:latest
+    image: lscr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
     environment:
       - PUID=1000
