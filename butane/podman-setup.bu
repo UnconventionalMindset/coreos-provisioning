@@ -14,8 +14,9 @@ storage:
         inline: |
           [Unit]
           Description=%i rootful pod (podman-compose)
-          After=network-online.target var-mnt-shared.mount local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
-          Wants=network-online.target var-mnt-shared.mount local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+          RequiresMountsFor=/mnt/shared
+          After=network-online.target local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
+          Wants=network-online.target local-fs.target rpm-ostree-install-docker-compose.service download-apps-docker-composes.service
           
           [Service]
           Type=oneshot

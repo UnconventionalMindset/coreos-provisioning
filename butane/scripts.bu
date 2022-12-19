@@ -62,8 +62,7 @@ systemd:
         [Service]
         # Makes sure we copy before NFS is disconnected
         # Dependencies order is reverted for shutdown
-        Requires=network-online.target var-mnt-shared.mount
-        After=network-online.target var-mnt-shared.mount
+        RequiresMountsFor=/mnt/shared
         Type=oneshot
         # Execute at shutdown
         ExecStop=/usr/local/bin/save-rr-apps.sh
@@ -75,8 +74,7 @@ systemd:
       enabled: true
       contents: |
         [Service]
-        Requires=network-online.target var-mnt-shared.mount
-        After=network-online.target var-mnt-shared.mount
+        RequiresMountsFor=/mnt/shared
         Type=oneshot
         ExecStart=/usr/local/bin/restore-rr-apps.sh
         RemainAfterExit=yes
