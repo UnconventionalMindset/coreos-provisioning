@@ -18,5 +18,5 @@ systemd:
     - name: podman-compose@bazarr.service
       enabled: true
     # Prowlarr
-    - name: podman-compose@radarr.service
+    - name: podman-compose@prowlarr.service
       enabled: true

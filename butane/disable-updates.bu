@@ -1,0 +1,13 @@
+#
+# System can be completely reprovisioned and reconfigured by recreating the VM, no need for other update methods.
+variant: fcos
+version: 1.4.0
+storage:
+  files:
+    # Disables updates in zincati
+    - path: /etc/zincati/config.d/90-disable-auto-updates.toml
+      mode: 0755
+      contents:
+        inline: |
+          [updates]
+          enabled = false
