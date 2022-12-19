@@ -8,7 +8,7 @@ storage:
         inline: |
           #!/bin/bash
           podman_rootless=(portainer mosquitto zigbee2mqtt hass jellyfin)
-          podman_rootful=()
+          podman_rootful=(heimdall qbittorrent radarr sonarr prowlarr bazarr)
           docker=()
           git clone --filter=blob:none --branch main --no-checkout --depth 1 --sparse https://github.com/UnconventionalMindset/coreos-provisioning.git /var/home/core/coreos-provisioning
           cd /var/home/core/coreos-provisioning

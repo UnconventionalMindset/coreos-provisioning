@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   bazarr:
-    image: docker.io/hotio/bazarr:latest
+    image: docker.io/linuxserver/bazarr:latest
     container_name: bazarr
     environment:
       - PUID=1000
@@ -9,7 +9,7 @@ services:
       - UMASK=007
       - TZ=Europe/Zurich
     volumes:
-      - /mnt/shared/apps/docker/bazarr/config:/config
+      - /var/home/core/apps/docker/bazarr/config:/config:Z
       - /mnt/shared/apps/files/films:/movies
       - /mnt/shared/apps/files/series:/tv
     ports:

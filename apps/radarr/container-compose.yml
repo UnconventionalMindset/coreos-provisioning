@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   radarr:
-    image: docker.io/hotio/radarr:latest
+    image: docker.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
       - PUID=1000
@@ -9,9 +9,9 @@ services:
       - UMASK=007
       - TZ=Europe/Zurich
     volumes:
-      - /mnt/shared/apps/docker/radarr/config:/config
+      - /var/home/core/apps/docker/radarr/config:/config:Z
+      - /var/home/core/apps/docker/radarr/downloads:/downloads:Z
       - /mnt/shared/apps/files/films:/movies
-      - /var/home/core/apps/docker/radarr/downloads:/downloads
     ports:
       - 7878:7878
     restart: 'unless-stopped'

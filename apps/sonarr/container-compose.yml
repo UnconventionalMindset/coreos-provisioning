@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   sonarr:
-    image: docker.io/hotio/sonarr:latest
+    image: docker.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
       - PUID=1000
@@ -9,9 +9,9 @@ services:
       - UMASK=007
       - TZ=Europe/Zurich
     volumes:
-      - /mnt/shared/apps/docker/sonarr/config:/config
+      - /var/home/core/apps/docker/sonarr/config:/config:Z
+      - /var/home/core/apps/docker/sonarr/downloads:/downloads:Z
       - /mnt/shared/apps/files/series:/tv
-      - /var/home/core/apps/docker/sonarr/downloads:/downloads
     ports:
       - 8989:8989
     restart: 'unless-stopped'

@@ -47,6 +47,12 @@ storage:
         id: 1000
       group:
         id: 1000
+    - path: /var/home/core/apps/docker/radarr/config
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
     - path: /var/home/core/apps/docker/radarr/downloads
       mode: 0770
       user:
@@ -60,7 +66,51 @@ storage:
         id: 1000
       group:
         id: 1000
+    - path: /var/home/core/apps/docker/sonarr/config
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
     - path: /var/home/core/apps/docker/sonarr/downloads
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    # Prowlarr
+    - path: /var/home/core/apps/docker/prowlarr
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/prowlarr/config
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/prowlarr/downloads
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    # Bazarr
+    - path: /var/home/core/apps/docker/bazarr
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/bazarr/config
+      mode: 0770
+      user:
+        id: 1000
+      group:
+        id: 1000
+    - path: /var/home/core/apps/docker/bazarr/downloads
       mode: 0770
       user:
         id: 1000

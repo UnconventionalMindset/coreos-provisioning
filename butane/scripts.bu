@@ -33,9 +33,50 @@ storage:
 
           # Adds core user to group dialout
           echo "dialout:x:18:core" >> /etc/group
+    - path: /usr/local/bin/save-rr-apps.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          rr_apps=(radarr sonarr prowlarr bazarr)
+          for entry in ${rr_apps[@]}
+          do
+            cp -Rf /var/home/core/apps/docker/$entry/config/* /mnt/shared/apps/docker/$entry/config/
+          done
+    - path: /usr/local/bin/restore-rr-apps.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/bin/bash
+          rr_apps=(radarr sonarr prowlarr bazarr)
+          for entry in ${rr_apps[@]}
+          do
+            cp -Rf /mnt/shared/apps/docker/$entry/config/* /var/home/core/apps/docker/$entry/config/
+          done
           
 systemd:
   units:
+    - name: save-rr-apps.service
+      enabled: true
+      contents: |
+        [Service]
+        Type=oneshot
+        # Execute at shutdown
+        ExecStop=/usr/local/bin/save-rr-apps.sh
+        RemainAfterExit=yes
+        
+        [Install]
+        WantedBy=multi-user.target
+    - name: restore-rr-apps.service
+      enabled: true
+      contents: |
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/local/bin/restore-rr-apps.sh
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
     - name: zigbee-permissions-selinux-policy.service
       enabled: true
       contents: |

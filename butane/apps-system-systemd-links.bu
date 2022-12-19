@@ -2,3 +2,21 @@ variant: fcos
 version: 1.4.0
 systemd:
   units:
+    # Qbittorrent
+    - name: podman-compose@qbittorrent.service
+      enabled: true
+    # Heimdall
+    - name: podman-compose@heimdall.service
+      enabled: true
+    # Sonarr
+    - name: podman-compose@sonarr.service
+      enabled: true
+    # Radarr
+    - name: podman-compose@radarr.service
+      enabled: true
+    # Bazarr
+    - name: podman-compose@bazarr.service
+      enabled: true
+    # Prowlarr
+    - name: podman-compose@radarr.service
+      enabled: true

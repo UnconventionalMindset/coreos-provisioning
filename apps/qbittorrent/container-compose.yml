@@ -1,19 +1,19 @@
 version: '3.5'
 services:
   qbittorrent:
-    image: docker.io/hotio/qbittorrent:latest
+    image: docker.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
       - PUID=1000
       - PGID=1000
       - UMASK=007
-      - WEBUI_PORTS=8084/tcp,8084/udp
+      - WEBUI_PORT=8085
       - TZ=Europe/Zurich
     volumes:
+      - /var/home/core/apps/docker/qbittorrent/downloads:/downloads:Z
       - /mnt/shared/apps/docker/qbittorrent/config:/config
-      - /var/home/core/apps/docker/qbittorrent/downloads:/downloads
     ports:
       - 6881:6881
       - 6881:6881/udp
-      - 8084:8084
+      - 8085:8085
     restart: 'unless-stopped'
