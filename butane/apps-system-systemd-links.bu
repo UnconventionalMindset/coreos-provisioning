@@ -5,6 +5,9 @@ systemd:
     # Qbittorrent
     - name: podman-compose@qbittorrent.service
       enabled: true
+    # Jellyfin
+    - name: podman-compose@jellyfin.service
+      enabled: true
     # Heimdall
     - name: podman-compose@heimdall.service
       enabled: true

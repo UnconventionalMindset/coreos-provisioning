@@ -158,12 +158,3 @@ storage:
         id: 1000
       target: /home/core/.config/systemd/user/podman-compose@.service
       hard: false
-
-    # Jellyfin
-    - path: /home/core/.config/systemd/user/default.target.wants/podman-compose@jellyfin.service
-      user:
-        id: 1000
-      group:
-        id: 1000
-      target: /home/core/.config/systemd/user/podman-compose@.service
-      hard: false
