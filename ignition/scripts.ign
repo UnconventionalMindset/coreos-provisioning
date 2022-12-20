@@ -5,10 +5,10 @@
   "storage": {
     "files": [
       {
-        "path": "/usr/local/bin/zigbee-permissions-selinux-policy.sh",
+        "path": "/usr/local/bin/boot-permissions-selinux-policy.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/0TMQUrFMBCH8X1O8ZceIPEAbh64cyGUrkuajnQgnZHMpLW3F/FBtx/8vuElLixxybaFAZ/UdjZjFcOXNkzjAysdXCiUTU/Ba0oJcaUjul/T+EhhwPj+wdJ/8K2VywVX5Fr1RFHxzELN/lo3QpbrucOhte+EXbs4rWBxvUEwcqNFtd5t7kbzP7Y3b53CbwAAAP//jc7izrsAAAA="
+          "source": "data:;base64,H4sIAAAAAAAC/3SOMUvGMBBA9/yKk/6A5HNycSmKi0OhdC5pctKD9E5yl9b+exGFLn7rg/d43YNfiP0SdXUdDFg3UiVhhQ+pMI09ZNwpoUurHAy3EAL4jLs3O6exD66D8fWduH3BpxRKJ5hALEUOSMIWibHqD2uKEPn8y8EupW0ImzQ2zEBscglO0RQXkXKxuSnOv7I+W234z+7bMN3bzZV8Rc5YX26PT+47AAD//1L2x2L3AAAA"
         },
         "mode": 493
       },
@@ -16,7 +16,7 @@
         "path": "/usr/local/bin/acl-permissions-sticky-bit.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/4SQTU8DIRCG7/yKsfVWCe3NkNik8erJcxNDYSjEXWYzQD/+vWFdY9cePHBgnpcn77B8UIeY1MHkIMww5A9PnUN+USfDKlCPyhKjakgsYff6JnJ1BBmLN7YDKRlt5RxPCFL25KK/wl449KZ2RdeMrDfr9Vrz+fL0Mz0y1eF+TCUgay2lhL14vCkjxBKmEDQjeGpnRDbQOYF8h6aD2SsbenIN1VWek1/dWGXuO/Lwj+9478sl2s8rHGIBCQPjCVMBhx2WSAk8Uw+JkqRzuhWtCvzdc+dchvbl35sWmiq6aDqqRaANBIvppi9686xbegHbLSgsVo1x8RUAAP//Iz1y8dcBAAA="
+          "source": "data:;base64,H4sIAAAAAAAC/5SQQUszMRCG7/kV87XfrYZsEUEDFopXT54Lsk1mm+BuZpkk2/bfS7YrtlYUD4HMvJOHZzL/p7Y+qG0dnaj7Pr421FrkRzXUrBx1qAwxqhKJOayfnkXMliBiamrTgpSMJnP0A4KUHVnfHGEjLDZ1bpPOEVkvq6rSvD/cfHR3TLm/blNyyFpLKWEj/p/JCDGHaQgKERoqZ4yMo30A+QIFBxevjOvIligv4mXyiRtVLnk77n/h7a55MXnzdoStTyChZxwwJLDYYvIUoGHqIFCQtA/noEWCr3uurY1Qvvy0aaJJ0fq6pZwEGkcwmyp90Mt7XaZnsFqBwmTUOP4DaPAWacKMd33Qtw9/hDCG4nuinIriUt19y3kPAAD//zpoMQFkAgAA"
         },
         "mode": 493
       },
@@ -51,9 +51,9 @@
         "name": "restore-rr-apps.service"
       },
       {
-        "contents": "[Service]\nType=oneshot\nExecStart=/usr/local/bin/zigbee-permissions-selinux-policy.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
+        "contents": "[Service]\nType=oneshot\nExecStart=/usr/local/bin/boot-permissions-selinux-policy.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
-        "name": "zigbee-permissions-selinux-policy.service"
+        "name": "boot-permissions-selinux-policy.service"
       },
       {
         "contents": "[Unit]\nConditionPathExists=!/var/lib/acl-permissions-sticky-bit\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/acl-permissions-sticky-bit.sh\nExecStartPost=/usr/bin/touch /var/lib/acl-permissions-sticky-bit\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target",
