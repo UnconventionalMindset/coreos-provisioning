@@ -2,7 +2,7 @@ variant: fcos
 version: 1.4.0
 storage:
   files:
-    - path: /usr/local/bin/zigbee-permissions-selinux-policy.sh
+    - path: /usr/local/bin/boot-permissions-selinux-policy.sh
       mode: 0755
       contents:
         inline: |
@@ -11,6 +11,8 @@ storage:
           chown 1000 /dev/ttyUSB0
           # SELinux policy to allow containers to use any device volume mounted into container
           setsebool container_use_devices=true
+          # Permissions for GPU device
+          chown 1000 /dev/dri/renderD128
     - path: /usr/local/bin/acl-permissions-sticky-bit.sh
       mode: 0755
       contents:
@@ -33,6 +35,10 @@ storage:
 
           # Adds core user to group dialout
           echo "dialout:x:18:core" >> /etc/group
+          # Adds core user to group video
+          echo "video:x:39:core" >> /etc/group
+          # Adds core user to group render
+          echo "render:x:105:core" >> /etc/group
     - path: /usr/local/bin/save-rr-apps.sh
       mode: 0755
       contents:
@@ -81,12 +87,12 @@ systemd:
 
         [Install]
         WantedBy=multi-user.target
-    - name: zigbee-permissions-selinux-policy.service
+    - name: boot-permissions-selinux-policy.service
       enabled: true
       contents: |
         [Service]
         Type=oneshot
-        ExecStart=/usr/local/bin/zigbee-permissions-selinux-policy.sh
+        ExecStart=/usr/local/bin/boot-permissions-selinux-policy.sh
         RemainAfterExit=yes
 
         [Install]
