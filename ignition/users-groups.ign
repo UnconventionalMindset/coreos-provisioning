@@ -7,6 +7,10 @@
       {
         "gid": 1000,
         "name": "homeuser"
+      },
+      {
+        "gid": 982,
+        "name": "docker"
       }
     ],
     "users": [
