@@ -16,7 +16,7 @@
         "path": "/usr/local/bin/acl-permissions-sticky-bit.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/5SQQUszMRCG7/kV87XfrYZsEUEDFopXT54Lsk1mm+BuZpkk2/bfS7YrtlYUD4HMvJOHZzL/p7Y+qG0dnaj7Pr421FrkRzXUrBx1qAwxqhKJOayfnkXMliBiamrTgpSMJnP0A4KUHVnfHGEjLDZ1bpPOEVkvq6rSvD/cfHR3TLm/blNyyFpLKWEj/p/JCDGHaQgKERoqZ4yMo30A+QIFBxevjOvIligv4mXyiRtVLnk77n/h7a55MXnzdoStTyChZxwwJLDYYvIUoGHqIFCQtA/noEWCr3uurY1Qvvy0aaJJ0fq6pZwEGkcwmyp90Mt7XaZnsFqBwmTUOP4DaPAWacKMd33Qtw9/hDCG4nuinIriUt19y3kPAAD//zpoMQFkAgAA"
+          "source": "data:;base64,H4sIAAAAAAAC/5TQzWrrMBAF4L2eYm5yd6mQ01JIBA2EbrvqOlAcaRyL2BqjH8d5+yLbbeOmtGRh8OiMP448/yf2xop97kuWN41/K6jS6J5EmztRUo1CkUORIjaH7fML81ETeAxFrirg3KGKzpsWgfOatCnOsGMaizxWQUaPTi6zLJPu1N19nB4cxeb6mEKJTkrOOezY/4syjM1hXIIkQkHp6SNV0skCf4XEweQrVdakUxQXfpp8cX2VqXdwzR/e4drzwajjGfYmAIfGYYs2gMYKgyELhaMaLFlOJ3sJLQJ8v+dWaw/plw83DTRW1CavKAaGqiSYjZPs5HIl0/YMNhsQGJTo13+BWqORRqZ/l518WN+IOLSp76AMQ+qSPd7oaFLHT2cYZCfXq/sfnfcAAAD//7z3zDOsAgAA"
         },
         "mode": 493
       },
@@ -56,7 +56,7 @@
         "name": "boot-permissions-selinux-policy.service"
       },
       {
-        "contents": "[Unit]\nConditionPathExists=!/var/lib/acl-permissions-sticky-bit\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/acl-permissions-sticky-bit.sh\nExecStartPost=/usr/bin/touch /var/lib/acl-permissions-sticky-bit\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target",
+        "contents": "[Unit]\nConditionPathExists=!/var/lib/acl-permissions-sticky-bit\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/acl-permissions-sticky-bit.sh\nExecStartPost=/usr/bin/touch /var/lib/acl-permissions-sticky-bit\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
         "name": "folder-permissions.service"
       }
