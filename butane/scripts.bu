@@ -39,6 +39,8 @@ storage:
           echo "video:x:39:core" >> /etc/group
           # Adds core user to group render
           echo "render:x:105:core" >> /etc/group
+          # Adds core user to group docker
+          echo "docker:x:982:core" >> /etc/group
     - path: /usr/local/bin/save-rr-apps.sh
       mode: 0755
       contents:
