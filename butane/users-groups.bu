@@ -4,8 +4,6 @@ passwd:
   groups:
     - name: homeuser
       gid: 1000
-    - name: docker
-      gid: 982
   users:
     - name: core
       uid: 1000
