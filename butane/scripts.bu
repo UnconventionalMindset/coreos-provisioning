@@ -3,7 +3,8 @@ version: 1.4.0
 storage:
   files:
     - path: /etc/groups
-      override: true
+      overwrite: true
+      mode: 420
       contents:
         inline: |
           root:x:0:
