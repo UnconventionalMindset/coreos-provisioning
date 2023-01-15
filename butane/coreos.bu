@@ -11,7 +11,7 @@ ignition:
       # Mount NFS - TODO: replace with Docker volumes
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/nfs.ign
       # Install system apps using Systemd services that runs RPM-OSTree installation
-      - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign
+      # - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/install-programs.ign
       # Systemd system apps files
       - source: https://raw.githubusercontent.com/UnconventionalMindset/coreos-provisioning/main/ignition/apps-system-systemd-links.ign
       # Systemd user apps files
