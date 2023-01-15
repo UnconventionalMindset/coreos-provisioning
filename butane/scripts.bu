@@ -2,6 +2,21 @@ variant: fcos
 version: 1.4.0
 storage:
   files:
+    - path: /etc/groups
+      override: true
+      contents:
+        inline: |
+          root:x:0:
+          adm:x:4:core
+          wheel:x:10:core
+          sudo:x:16:core
+          systemd-journal:x:190:core
+          docker:x:982:core
+          homeuser:x:1000:core
+          core:x:1001:
+          dialout:x:18:core
+          video:x:39:core
+          render:x:105:core
     - path: /usr/local/bin/boot-permissions-selinux-policy.sh
       mode: 0755
       contents:
@@ -34,13 +49,13 @@ storage:
           chmod -R +t $apps_folder
 
           # Adds core user to group dialout
-          echo "dialout:x:18:core" >> /etc/group
+          #echo "dialout:x:18:core" >> /etc/group
           # Adds core user to group video
-          echo "video:x:39:core" >> /etc/group
+          #echo "video:x:39:core" >> /etc/group
           # Adds core user to group render
-          echo "render:x:105:core" >> /etc/group
+          #echo "render:x:105:core" >> /etc/group
           # Adds core user to group docker
-          echo "docker:x:982:core" >> /etc/group
+          #echo "docker:x:982:core" >> /etc/group
     - path: /usr/local/bin/save-rr-apps.sh
       mode: 0755
       contents:
