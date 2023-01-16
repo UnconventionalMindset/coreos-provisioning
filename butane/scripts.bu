@@ -32,15 +32,6 @@ storage:
           chmod -R g+s $apps_folder
           # sticky bit - prevent deletion from non-owner
           chmod -R +t $apps_folder
-
-          # Adds core user to group dialout
-          echo "dialout:x:18:core" >> /etc/group
-          # Adds core user to group video
-          echo "video:x:39:core" >> /etc/group
-          # Adds core user to group render
-          echo "render:x:105:core" >> /etc/group
-          # Adds core user to group docker
-          #echo "docker:x:982:core" >> /etc/group
     - path: /usr/local/bin/save-rr-apps.sh
       mode: 0755
       contents:
