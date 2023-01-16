@@ -12,7 +12,7 @@
     "users": [
       {
         "groups": [
-          "docker",
+          "982",
           "1000"
         ],
         "name": "core",
