@@ -5,15 +5,6 @@
   "storage": {
     "files": [
       {
-        "overwrite": true,
-        "path": "/etc/groups",
-        "contents": {
-          "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/yyO3QrDIAxG732Xge6P+r2NNIF2qw3Eurm3HzbeCOd4SKIiBxo8XKKMhjtmUXbfhXlDQ/DGpZJ0fA78lYMzXV5SdU9nGEdJMr9Z0RCnq5lFMtdyuuD9yPpjIsDRmjap/Y4w2fdnJe4Lb9FYeacx4WHmHwAA//9KMGWAuQAAAA=="
-        },
-        "mode": 420
-      },
-      {
         "path": "/usr/local/bin/boot-permissions-selinux-policy.sh",
         "contents": {
           "compression": "gzip",
@@ -25,7 +16,7 @@
         "path": "/usr/local/bin/acl-permissions-sticky-bit.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/5TQz2vCMBQH8Hv+ije7mwupGwMNTJBdd9pZGDV5tcE2r+RHrf/9SKuoc2x46OH96IfvS/YgNsaKTeErVrSt/yqp1ujeRFc4UVGDQpFDkUYsg9X7B/NRE3gMZaFq4Nyhis6bDoHzhrQpD7BmGssi1kFGj07O8jyXbt8/nbpbR7G9bVOo0EnJOYc1e7wIw1gGxyVIIpSUvmGkKtpb4J+QOLj6S1UN6TSKU389OXNDlGtv69p/vO2t54NRuwNsTAAOrcMObQCNNQZDFkpHDViynPb2EpoG+HnnSmsP6cnHSwMdI2pT1BQDy1BVBJNjKXs5m8u0PoHlEgQGJYb9P6TOaKSTMxSyly+LOxWHdrh8ZMYqpclf74Q0qd0ZGivZy8X8+VfoOwAA///sm+1VsAIAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/5SQQWvCQBCF7/srptqbXTa2FHShgvTaU89CibsTs5jshNlNjP++bEyp1tLiIZCZ9/bjvZneqa3zapuHUuRNEz4Kqizyi+pyViXVqAwxqiSJKaxf30RoLUHAWOSmAikZTcvBdQhS1mRdcYSNsFjkbRV1G5D1PMsyzYf+4Wu7Y2qb6zXFEllrKSVsxP1ZGCGmMJogEaGg9A2SKengQb5DwsHFK1PWZJPUzsKl8o0bolzydtz8w9td80J0Zn+ErYsgoWHs0EewWGF05KFgqsGTl3Tw56BZhJ8919YGSCc/NY00RrQur6iNAk1JMBkn3ev5Qif3BFYrUBiNGux/gDpnkUbM8K97/bS8EcLoU94T5TSkLNnzjRxLZp/uN7YaJt3r5eLxV9BnAAAA//9zYfYVrQIAAA=="
         },
         "mode": 493
       },
