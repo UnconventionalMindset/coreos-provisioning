@@ -16,7 +16,7 @@
         "path": "/usr/local/bin/acl-permissions-sticky-bit.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/5SQQWvCQBCF7/srptqbXTa2FHShgvTaU89CibsTs5jshNlNjP++bEyp1tLiIZCZ9/bjvZneqa3zapuHUuRNEz4Kqizyi+pyViXVqAwxqiSJKaxf30RoLUHAWOSmAikZTcvBdQhS1mRdcYSNsFjkbRV1G5D1PMsyzYf+4Wu7Y2qb6zXFEllrKSVsxP1ZGCGmMJogEaGg9A2SKengQb5DwsHFK1PWZJPUzsKl8o0bolzydtz8w9td80J0Zn+ErYsgoWHs0EewWGF05KFgqsGTl3Tw56BZhJ8919YGSCc/NY00RrQur6iNAk1JMBkn3ev5Qif3BFYrUBiNGux/gDpnkUbM8K97/bS8EcLoU94T5TSkLNnzjRxLZp/uN7YaJt3r5eLxV9BnAAAA//9zYfYVrQIAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/4TOsU70MAzA8T1P4U/9tsNKWSsxIFYm5pNQmzhNRBtHTtJyb49yAnHVDQxZ/I9/cvdPTyHqacxejSnld8eLJXnS2yja80rasJBuSXXw/PKqcrUMmYobzQKIQqZKDhsB4so2uAuclSU31qUMNZMMj33fD7J/PvxMZ+Ga7sdcPMkwICKc1f+bY5Tq4PsTNBEct3dNxvMeAd+gcXDYMn5l21I95WP55a6nHL1Z0h/efO/lEszHBaZQACEJbRQLWFqoBI7ghFeIHJH3eAudytH5CgAA//9hCKQWjQEAAA=="
         },
         "mode": 493
       },
