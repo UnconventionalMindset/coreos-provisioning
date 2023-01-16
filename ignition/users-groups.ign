@@ -12,6 +12,9 @@
     "users": [
       {
         "groups": [
+          "dialout",
+          "video",
+          "render",
           "1000"
         ],
         "name": "core",
