@@ -18,4 +18,6 @@ services:
       - 8920:8920
       - 7359:7359/udp
       - 1901:1900/udp
+    devices:
+      - /dev/dri:/dev/dri
     restart: 'unless-stopped'
